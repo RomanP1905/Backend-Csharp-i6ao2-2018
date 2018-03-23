@@ -2,5 +2,6 @@
 Bookstore Project voor backend C#
 
 
-- Product class af
-- Measurement  class af
+- Product attributen, propperty, constructor af
+- Measurement attributen, propperty, constructor af
+- Book afattributen, propperty, constructor af
