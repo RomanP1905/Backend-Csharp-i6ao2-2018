@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookstorLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,16 @@ namespace BookstoreLibrary
 {
     public class BookStore
     {
-        private string name;
-        private string address;
-        private string city;
-        private string zipcode;
-        private int phonenumber;
-        private string email;
-        private string openingstijden;
+        private string contactInfo;
+        private string businessHours;
+
+        public BookStore()
+        {
+        }
+
+        public List<Product> Stocks { get; set; } = new List<Product>();
+        public OrderItems ObjOrderItems { get; set; }
+        public string ContactInfo { get => contactInfo; set => contactInfo = value; }
+        public string BusinessHours { get => businessHours; set => businessHours = value; }
     }
 }

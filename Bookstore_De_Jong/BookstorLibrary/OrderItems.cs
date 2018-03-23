@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace BookstorLibrary
 {
-    class OrderItems
+    public class OrderItems
     {
+        private string printLastCode;
+
+        public OrderItems()
+        {
+        }
+
+        public string PrintLastCode { get => printLastCode; set => printLastCode = value; }
+        public List<Order> OrderList { get; set; } = new List<Order>();
     }
 }

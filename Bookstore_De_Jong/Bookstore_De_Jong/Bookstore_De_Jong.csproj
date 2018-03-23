@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookstorLibrary\BookstoreLibrary.csproj">
+      <Project>{6165618A-E738-4731-9ACA-7891E0118A91}</Project>
+      <Name>BookstoreLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
