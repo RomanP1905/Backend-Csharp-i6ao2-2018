@@ -15,17 +15,12 @@ Bookstore Project voor backend C#
 - commentaar toevoegen door middel van gost doc
 - test data toevoegen aan de hand van een methode zie voorbeeld hieronder:
 
-       public static List<Animal> GetTestData()
+       public static List<Product> GetTestData()
         {
-            List<Animal> animals = new List<Animal>();
-            animals.Add(new Dog("Hero", 25, 6));
-            animals.Add(new Pig("Pandi", 60, 5, Gender.Female));
-            animals.Add(new Chicken("Meenachi", 25, 15, Gender.Male));
-            animals.Add(new Horse("mr. Ed", 350, 18));
-            Animal ed1 = new Horse("Papi", 180, 3);
-            animals.Add(ed1);
-
-            return animals;
+            List<Product> products = new List<Product>();
+            products.Add(new Book());
+            products.Add(new Magazine());
+            return products;
         }
         
 
