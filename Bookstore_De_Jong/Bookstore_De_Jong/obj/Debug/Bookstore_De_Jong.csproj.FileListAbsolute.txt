@@ -1,0 +1,7 @@
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe.config
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.pdb
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csprojResolveAssemblyReference.cache
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csproj.CoreCompileInputs.cache
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.exe
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.pdb

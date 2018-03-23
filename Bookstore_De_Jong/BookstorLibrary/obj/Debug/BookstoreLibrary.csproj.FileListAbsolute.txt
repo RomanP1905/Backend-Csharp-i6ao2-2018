@@ -1,0 +1,6 @@
+c:\users\hteri\source\repos\Bookstore_De_Jong\BookstorLibrary\bin\Debug\BookstorLibrary.dll
+c:\users\hteri\source\repos\Bookstore_De_Jong\BookstorLibrary\bin\Debug\BookstorLibrary.pdb
+c:\users\hteri\source\repos\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstoreLibrary.csprojResolveAssemblyReference.cache
+c:\users\hteri\source\repos\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstoreLibrary.csproj.CoreCompileInputs.cache
+c:\users\hteri\source\repos\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstorLibrary.dll
+c:\users\hteri\source\repos\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstorLibrary.pdb
