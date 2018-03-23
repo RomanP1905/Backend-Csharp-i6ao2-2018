@@ -8,3 +8,4 @@ Bookstore Project voor backend C#
 - Magazine attributen, propperty, constructor af
 - Order attributen, propperty, constructor af
 - OrdeItems attributen, propperty, constructor af
+- Bookstore attributen, propperty, constructor af
