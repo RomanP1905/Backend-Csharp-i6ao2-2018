@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookstorLibrary
 {
+    #region enum
     public enum Language
     {
         Dutch,
@@ -15,14 +16,18 @@ namespace BookstorLibrary
         French,
         Unknow
     }
+    #endregion
 
     public abstract class Product
     {
+        #region attributes
         private string title;
         private string author;
         private int weight;
         private decimal price;
+        #endregion
 
+        #region construtor
         protected Product(string title, string author, int weight, decimal price, Language language, Measurement measurement)
         {
             Title = title;
@@ -32,14 +37,18 @@ namespace BookstorLibrary
             Language = language;
             Measurement = measurement;
         }
+        #endregion
 
+        #region propperties
         public string Title { get => title; set => title = value; }
         public string Author { get => author; set => author = value; }
         public int Weight { get => weight; set => weight = value; }
         public decimal Price { get => price; set => price = value; }
         public Language Language { get; set; }
         public Measurement Measurement { get; set; }
+        #endregion
 
+        #region methodes
         public abstract string PrintAttributes();
 
         public abstract string PrintOrderRule();
@@ -59,5 +68,6 @@ namespace BookstorLibrary
                 new Measurement(20, 5, 5)));
             return products;
         }
+        #endregion
     }
 }
