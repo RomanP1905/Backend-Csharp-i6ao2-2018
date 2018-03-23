@@ -6,4 +6,4 @@ Bookstore Project voor backend C#
 - Measurement attributen, propperty, constructor af
 - Book afattributen, propperty, constructor af
 - Magazine afattributen, propperty, constructor af
-
+- Order afattributen, propperty, constructor af
