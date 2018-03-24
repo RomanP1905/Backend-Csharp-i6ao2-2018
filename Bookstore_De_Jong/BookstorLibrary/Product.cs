@@ -39,7 +39,7 @@ namespace BookstorLibrary
         }
         #endregion
 
-        #region propperties
+        #region properties
         public string Title { get => title; set => title = value; }
         public string Author { get => author; set => author = value; }
         public int Weight { get => weight; set => weight = value; }
@@ -51,21 +51,39 @@ namespace BookstorLibrary
         #region methodes
         public abstract string PrintAttributes();
 
+        public abstract string GetKey();
+
+        public abstract int GetStock();
+
+        public abstract void SellItem();
+
         public abstract string PrintOrderRule();
 
         public static List<Product> GetTestData()
         {
+
             List<Product> products = new List<Product>();
-            products.Add(new Book("1986", 
-                "1234567891147", 
-                6, 
-                12, 
-                "Papi", 
-                "Bizzy", 
-                120, 
-                12.40m, 
-                Language.Dutch , 
-                new Measurement(20, 5, 5)));
+
+            products.Add(new Book("1986",
+                "1234567891147",
+                6,
+                12,
+                12,
+                "Papi",
+                "Bizzy",
+                120,
+                12.40m,
+                Language.Dutch,
+                new Measurement(20, 5, 5)
+                ));
+
+            products.Add(new Magazine(DayOfWeek.Tuesday, DayOfWeek.Monday, "1234-5678", 100, "Programming Magazine", 
+                "Author", 50, 5.00m, Language.English, new Measurement(20, 10, 1)
+            
+                ));
+
+
+            
             return products;
         }
         #endregion

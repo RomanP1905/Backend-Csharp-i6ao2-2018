@@ -19,7 +19,7 @@ namespace BookstorLibrary
         }
         #endregion
 
-        #region propperties
+        #region properties
         public DateTime OrderDate { get => orderDate; set => orderDate = value; }
         public bool OrderHandled { get => orderHandled; set => orderHandled = value; }
         public List<string> OrderList { get; set; } = new List<string>();

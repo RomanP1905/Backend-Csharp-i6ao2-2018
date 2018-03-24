@@ -16,42 +16,75 @@ namespace BookstorLibrary
         private int stock;
         private string orderRule;
         #endregion
-
-        #region constructor
-        public Book(string print, string iSBN, int minStock, int maxStock, string title, string author, int weight, decimal price, Language language, Measurement measurement) : base(title, author, weight, price, language, measurement)
-        {
-
-        }
-        #endregion
-
-        #region propperties
+        #region properties
         public string Print { get => print; set => print = value; }
         public string ISBN { get => iSBN; set => iSBN = value; }
         public int MinStock { get => minStock; set => minStock = value; }
         public int MaxStock { get => maxStock; set => maxStock = value; }
+ 
         public int Stock { get => stock; set => stock = value; }
-        public string OrderRule { get => orderRule;}
+
+
+
+        public string OrderRule { get => orderRule; }
         #endregion
 
-        #region methodes
+        #region constructor
+        public Book(string print, string iSBN, int minStock, int maxStock, int stock, string title, string author, int weight, decimal price, Language language, Measurement measurement) : base(title, author, weight, price, language, measurement)
+        {
+            Print = print;
+            ISBN = iSBN;
+            MinStock = minStock;
+            MaxStock = maxStock;
+            Stock = stock;
+            
+        }
+        #endregion
+
+        
+
+        #region methodes       
+
+        
+
+        public string GetBookInfo()
+        {
+            return Print + " " + ISBN + " " + MinStock + " " + MaxStock + " "; 
+        }
+
+
+        public override string ToString()
+        {
+            return GetBookInfo();
+        }
+
         public override string PrintAttributes()
         {
-            return Attributes();
-        }
-        
-        public string Attributes()
-        {
-            return "druk : " + Print + "\n" +
-            "ISBN : " + ISBN + "\n" +
-            "Minimale voorraad : " + MinStock + "\n" +
-            "Maximum voorraad : " + MaxStock + "\n" +
-            "Titel : " + Title + "\n";
+            return GetBookInfo();
         }
 
         public override string PrintOrderRule()
         {
-            throw new NotImplementedException();
+            return "orderrulebook";
         }
+
+        public override string GetKey()
+        {
+            return ISBN;
+        }
+
+        public override int GetStock()
+        {
+            return Stock;
+        }
+
+        public override void SellItem()
+        {
+            Stock--;
+        }
+
+
+
         #endregion
     }
 }

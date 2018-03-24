@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BookstorLibrary
 {
     #region enum
-    public enum DayOfWeak
+    public enum DayOfWeek
     {
         Monday,
         Tuesday,
@@ -24,28 +24,51 @@ namespace BookstorLibrary
         private int totalOrderMagazine;
         #endregion
 
-        #region constructor
-        public Magazine(DayOfWeak dayOfRelease, DayOfWeak dayOfOrder, string iSSn, int totalOrderMagazine, string title, string author, int weight, decimal price, Language language, Measurement measurement): base(title, author, weight, price, language, measurement)
-        {
-        }
-        #endregion
+        
 
-        #region propperties
-        public DayOfWeak DayOfRelease { get; set; }
-        public DayOfWeak DayOfOrder { get; set; }
+        
+
+        #region properties
+        public DayOfWeek DayOfRelease { get; set; }
+        public DayOfWeek DayOfOrder { get; set; }
         public string ISSn { get => iSSn; set => iSSn = value; }
         public int TotalOrderMagazine { get => totalOrderMagazine; set => totalOrderMagazine = value; }
+        #endregion
+
+        #region constructor
+        public Magazine(DayOfWeek dayOfRelease, DayOfWeek dayOfOrder, string iSSn, int totalOrderMagazine, string title, string author, int weight, decimal price, Language language, Measurement measurement) : base(title, author, weight, price, language, measurement)
+        {
+            this.DayOfRelease = dayOfRelease;
+            this.DayOfOrder = dayOfOrder;
+            this.ISSn = iSSn;
+            this.TotalOrderMagazine = TotalOrderMagazine;
+        }
         #endregion
 
         #region methodes
         public override string PrintAttributes()
         {
-            throw new NotImplementedException();
+            return Title;
         }
 
         public override string PrintOrderRule()
         {
-            throw new NotImplementedException();
+            return Convert.ToString(DayOfRelease);
+        }
+
+        public override string GetKey()
+        {
+            return ISSn;
+        }
+
+        public override int GetStock()
+        {
+            return TotalOrderMagazine;
+        }
+
+        public override void SellItem()
+        {
+            TotalOrderMagazine--;
         }
         #endregion
     }
