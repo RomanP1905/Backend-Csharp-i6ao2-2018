@@ -1,0 +1,11 @@
+products.Add(new Book("2017", "9789022580196", 5, 12, 12, "De verloren familie",
+                "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(40, 218, 141)
+                ));
+
+            products.Add(new Book("2018", "9789048840243", 10, 50, 7, "Gordon",
+                "Marcel Langedijk", 374, 19.99m, Language.Dutch, new Measurement(25, 213, 134)
+                ));
+
+            products.Add(new Magazine(DayOfWeek.Monday, DayOfWeek.Monday, "1057-3534", 100, "LINDA", 
+                "Linda", 170, 6.25m, Language.Dutch, new Measurement(230, 275, 190)
+            ));
