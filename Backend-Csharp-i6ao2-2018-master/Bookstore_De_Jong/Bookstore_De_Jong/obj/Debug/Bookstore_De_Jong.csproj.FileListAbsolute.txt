@@ -1,0 +1,27 @@
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe.config
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.pdb
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csprojResolveAssemblyReference.cache
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csproj.CoreCompileInputs.cache
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.exe
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.pdb
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\BookstorLibrary.dll
+c:\users\hteri\source\repos\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\BookstorLibrary.pdb
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe.config
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.pdb
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\BookstorLibrary.dll
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\BookstorLibrary.pdb
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csprojResolveAssemblyReference.cache
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.exe
+C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe.config
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.exe
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\Bookstore_De_Jong.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\BookstorLibrary.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\bin\Debug\BookstorLibrary.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csprojResolveAssemblyReference.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.csproj.CoreCompileInputs.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.exe
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\Bookstore_De_Jong\obj\Debug\Bookstore_De_Jong.pdb
