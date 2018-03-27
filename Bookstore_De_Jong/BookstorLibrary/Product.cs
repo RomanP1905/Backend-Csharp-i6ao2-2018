@@ -66,15 +66,15 @@ namespace BookstorLibrary
             List<Product> products = new List<Product>();
 
             products.Add(new Book("2017", "9789022580196", 5, 12, 2, "De verloren familie",
-                "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(40, 218, 141)
+                "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(141, 218, 40)
                 ));
 
             products.Add(new Book("2018", "9789048840243", 10, 50, 3, "Gordon",
-                "Marcel Langedijk", 374, 19.99m, Language.Dutch, new Measurement(25, 213, 134)
+                "Marcel Langedijk", 374, 19.99m, Language.Dutch, new Measurement(134, 213, 25)
                 ));
 
             products.Add(new Magazine(DayOfWeek.Wednesday, DayOfWeek.Tuesday, "1057-3534", 100, "LINDA", 
-                "Linda", 170, 6.25m, Language.Dutch, new Measurement(230, 275, 190)
+                "Linda", 170, 6.25m, Language.Dutch, new Measurement(190, 275, 20 )
             ));
            
             return products;

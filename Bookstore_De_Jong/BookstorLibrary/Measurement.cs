@@ -19,7 +19,7 @@ namespace BookstorLibrary
         {
         }
 
-        public Measurement(int lenght, int height, int width)
+        public Measurement(int width, int height, int lenght)
         {
             this.lenght = lenght;
             this.height = height;

@@ -144,10 +144,12 @@ namespace BookstoreLibrary
         {
             public string OrderProduct;
             public int OrderAmount;
-            public OrderList(string orderProduct, int orderAmount)
+            public string OrderTitle;
+            public OrderList(string orderProduct, int orderAmount, string orderTitle)
             {
-                OrderProduct = orderProduct;
                 OrderAmount = orderAmount;
+                OrderProduct = orderProduct;
+                OrderTitle = orderTitle;
             }
         }
 
@@ -155,27 +157,21 @@ namespace BookstoreLibrary
 
         public static List<OrderList> CheckOrders()
         {
-
-
             List<Product> Stocks = Product.GetTestData();
             List<OrderList> OrderListCol = new List<OrderList>();
 
             for (int i = Stocks.Count - 1; i >= 0; i--)
             {
                 Type typeCompare = Stocks[i].GetType();
-
-
                 if (typeCompare == typeof(Magazine))
                 {
                     DateTime dt = DateTime.Today;
                     if (Convert.ToString(((Magazine)Stocks[i]).GetOrderDate()) == Convert.ToString(dt.DayOfWeek))
                     {
                         int oa1 = ((Magazine)Stocks[i]).GetStock();
-
-                        OrderList ol = new OrderList(Stocks[i].GetKey(), oa1);
-
+                        string t1 = ((Magazine)Stocks[i]).Title;
+                        OrderList ol = new OrderList(Stocks[i].GetKey(), oa1, t1);
                         OrderListCol.Add(ol);
-
                     }
                 }
                 else
@@ -183,19 +179,13 @@ namespace BookstoreLibrary
                     if(((Book)Stocks[i]).GetStock() < ((Book)Stocks[i]).GetMinStock())
                     {
                         int oa1 = ((Book)Stocks[i]).GetMaxStock() - Stocks[i].GetStock();
-
-
-                        OrderList ol = new OrderList(Stocks[i].GetKey(), oa1);
-
-
+                        string t1 = ((Book)Stocks[i]).Title;
+                        OrderList ol = new OrderList(Stocks[i].GetKey(), oa1, t1 );
                         OrderListCol.Add(ol);
                     }
-
-                }
-                
+                } 
             }
             return OrderListCol;
-
         }
     }
 }
