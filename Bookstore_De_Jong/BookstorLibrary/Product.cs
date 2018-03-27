@@ -53,6 +53,8 @@ namespace BookstorLibrary
 
         public abstract string GetKey();
 
+        public abstract string GetTitle();
+
         public abstract int GetStock();
 
         public abstract void SellItem();
@@ -61,29 +63,20 @@ namespace BookstorLibrary
 
         public static List<Product> GetTestData()
         {
-
             List<Product> products = new List<Product>();
 
-            products.Add(new Book("1986",
-                "1234567891147",
-                6,
-                12,
-                12,
-                "Papi",
-                "Bizzy",
-                120,
-                12.40m,
-                Language.Dutch,
-                new Measurement(20, 5, 5)
+            products.Add(new Book("2017", "9789022580196", 5, 12, 2, "De verloren familie",
+                "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(40, 218, 141)
                 ));
 
-            products.Add(new Magazine(DayOfWeek.Tuesday, DayOfWeek.Monday, "1234-5678", 100, "Programming Magazine", 
-                "Author", 50, 5.00m, Language.English, new Measurement(20, 10, 1)
-            
+            products.Add(new Book("2018", "9789048840243", 10, 50, 3, "Gordon",
+                "Marcel Langedijk", 374, 19.99m, Language.Dutch, new Measurement(25, 213, 134)
                 ));
 
-
-            
+            products.Add(new Magazine(DayOfWeek.Wednesday, DayOfWeek.Tuesday, "1057-3534", 100, "LINDA", 
+                "Linda", 170, 6.25m, Language.Dutch, new Measurement(230, 275, 190)
+            ));
+           
             return products;
         }
         #endregion

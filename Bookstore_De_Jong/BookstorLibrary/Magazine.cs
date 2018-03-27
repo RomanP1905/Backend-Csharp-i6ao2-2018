@@ -22,11 +22,7 @@ namespace BookstorLibrary
         #region attribute
         private string iSSn;
         private int totalOrderMagazine;
-        #endregion
-
-        
-
-        
+        #endregion       
 
         #region properties
         public DayOfWeek DayOfRelease { get; set; }
@@ -41,7 +37,7 @@ namespace BookstorLibrary
             this.DayOfRelease = dayOfRelease;
             this.DayOfOrder = dayOfOrder;
             this.ISSn = iSSn;
-            this.TotalOrderMagazine = TotalOrderMagazine;
+            this.TotalOrderMagazine = totalOrderMagazine;
         }
         #endregion
 
@@ -53,7 +49,12 @@ namespace BookstorLibrary
 
         public override string PrintOrderRule()
         {
-            return Convert.ToString(DayOfRelease);
+            return Convert.ToString(DayOfOrder);
+        }
+
+        public DayOfWeek GetOrderDate()
+        {
+            return DayOfOrder;
         }
 
         public override string GetKey()
@@ -70,6 +71,12 @@ namespace BookstorLibrary
         {
             TotalOrderMagazine--;
         }
+
+        public override string GetTitle()
+        {
+            return Title;
+        }
+
         #endregion
     }
 }

@@ -16,6 +16,7 @@ namespace BookstorLibrary
         private int stock;
         private string orderRule;
         #endregion
+
         #region properties
         public string Print { get => print; set => print = value; }
         public string ISBN { get => iSBN; set => iSBN = value; }
@@ -73,6 +74,11 @@ namespace BookstorLibrary
             return ISBN;
         }
 
+        public override string GetTitle()
+        {
+            return Title;
+        }
+
         public override int GetStock()
         {
             return Stock;
@@ -82,6 +88,17 @@ namespace BookstorLibrary
         {
             Stock--;
         }
+
+        public int GetMinStock()
+        {
+            return minStock;
+        }
+
+        public int GetMaxStock()
+        {
+            return maxStock;
+        }
+
 
 
 

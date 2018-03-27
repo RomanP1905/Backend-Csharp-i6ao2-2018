@@ -10,3 +10,9 @@ C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-m
 C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstorLibrary.pdb
 C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\bin\Debug\BookstorLibrary.dll
 C:\Users\Roman\Documents\Visual Studio 2017\Projects\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\bin\Debug\BookstorLibrary.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\bin\Debug\BookstorLibrary.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\bin\Debug\BookstorLibrary.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstoreLibrary.csprojResolveAssemblyReference.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstoreLibrary.csproj.CoreCompileInputs.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstorLibrary.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-master\Bookstore_De_Jong\BookstorLibrary\obj\Debug\BookstorLibrary.pdb
