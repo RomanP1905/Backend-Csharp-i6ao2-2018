@@ -65,7 +65,7 @@ namespace BookstorLibrary
         {
             List<Product> products = new List<Product>();
 
-            products.Add(new Book("2017", "9789022580196", 5, 12, 2, "De verloren familie",
+            products.Add(new Book("2017", "9789022580196", 5, 12, 12, "De verloren familie",
                 "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(141, 218, 40)
                 ));
 

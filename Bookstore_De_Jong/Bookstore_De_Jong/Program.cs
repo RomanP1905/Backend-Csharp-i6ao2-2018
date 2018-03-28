@@ -13,91 +13,126 @@ namespace Bookstore_De_Jong
     {
         private static List<Product> productList = Product.GetTestData();
         static void Main(string[] args)
-        {           
+        {
             BookStore hengelo = new BookStore();
             hengelo.Stocks = Product.GetTestData();
             hengelo.BusinessHours = "Ma-Vr 8:00 - 15:00";
             hengelo.ContactInfo = "Vind me op mijn website: www.bookstore-hengelo.nl";
 
-            Console.WriteLine("--------------------------------------oude voorraad------------------------------------");
-            ListProduct(hengelo.Stocks);
-            Console.WriteLine("\n--------------------------------------nieuwe voorraad------------------------------------");
+            int option;
 
-            try
+            do
             {
-                hengelo.Stocks = BookStore.SellBookByISBN("9789048840243", 1);
-                ListProduct(hengelo.Stocks);
+                Console.WriteLine("[ 1 ] Print Stock");
+                Console.WriteLine("[ 2 ] Check Orders");
+                Console.WriteLine("[ 3 ] Sell book");
+
+                while (!int.TryParse(Console.ReadLine(), out option))
+                {
+                    Console.WriteLine("voer een getal in!");
+                }
+
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine(BookStore.ListProduct(hengelo.Stocks));
+                        break;
+                    case 2:
+                        Console.WriteLine(BookStore.ListOrders(BookStore.CheckOrders()));
+                        break;
+                    case 3:
+                        int option3;
+                        Console.WriteLine("[ 1 ] Sell book by title");
+                        Console.WriteLine("[ 2 ] Sell book by ISBN");
+                        while (!int.TryParse(Console.ReadLine(), out option3))
+                        {
+                            Console.WriteLine("voer een getal in!");
+                        }
+                        switch (option3)
+                            {
+                            case 1:
+                                Console.WriteLine("Voer de titel in");
+                                string titel = Console.ReadLine();
+
+                                Console.WriteLine("Voer de auteur in");
+                                string author = Console.ReadLine();
+
+                                Console.WriteLine("Voer het aantal verkochte boeken in");
+                                int soldBooks;
+                                while (!int.TryParse(Console.ReadLine(), out soldBooks))
+                                {
+                                    Console.WriteLine("voer een getal in!");
+                                }
+                                hengelo.Stocks = BookStore.SellBookByTitle(titel, author, soldBooks);
+                                BookStore.ListProduct(hengelo.Stocks);
+                                break;
+
+                            case 2:
+                                Console.WriteLine("Voer de ISBN in");
+                                string isbn = Console.ReadLine();
+
+                                Console.WriteLine("Voer het aantal verkochte boeken in");
+                                int soldBooks2;
+                                while (!int.TryParse(Console.ReadLine(), out soldBooks2))
+                                {
+                                    Console.WriteLine("voer een getal in!");
+                                }
+                                hengelo.Stocks = BookStore.SellBookByISBN(isbn, soldBooks2);
+                                BookStore.ListProduct(hengelo.Stocks);
+                                break;
+
+                            default:
+                                break;
+                            }
+
+
+                        
+                        break;
+                    default:
+                        Console.WriteLine("The program will now close");
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                        break;
+
+
+                }
+
             }
-            catch(ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
+            while (option != 0);
 
-                Console.ReadKey();
-                Environment.Exit(1);
-            }
 
-            List<BookStore.OrderList> orderList = BookStore.CheckOrders();
 
-            Console.WriteLine("\n--------------------------------------bestel lijst------------------------------------");
-            ListOrders(orderList);
+
+
+            
+
+
+           
+
+
+            //try
+            //{
+            //    hengelo.Stocks = BookStore.SellBookByISBN("9789048840243", 1);
+            //    BookStore.ListProduct(hengelo.Stocks);
+            //}
+            //catch(ArgumentException ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+
+            //    Console.ReadKey();
+            //    Environment.Exit(1);
+            //}
+
+
+            
+
+
            
             Console.ReadKey();
         }
 
-        private static void ListOrders(List<BookStore.OrderList> orderItemsList)
-        {
-            foreach (var order in orderItemsList)
-            {
-                if (order.OrderProduct.Length == 13)
-                {
-                    Console.WriteLine("Titel: " + order.OrderTitle + ", ISBN: " + order.OrderProduct + ", Aantal " + order.OrderAmount);
-                }
-                else
-                {
-                    Console.WriteLine("Titel: " + order.OrderTitle + ", ISSN: " + order.OrderProduct + ", Aantal " + order.OrderAmount);
-                }                    
-            }
-        }
+        
 
-        private static void ListProduct(List<Product> productList)
-        {
-            List<Product> Stocks = Product.GetTestData();
-            for (int i = Stocks.Count - 1; i >= 0; i--)
-            {
-                Type typeCompare = Stocks[i].GetType();
-                if (typeCompare == typeof(Book))
-                {
-                    Console.WriteLine("Titel Boek: " + Stocks[i].Title +
-                    "\nISBN: " + ((Book)Stocks[i]).ISBN +
-                    "\nAuteur: " + Stocks[i].Author +
-                    "\nTaal: " + Stocks[i].Language +
-                    "\nPrijs: " + Stocks[i].Price +
-                    "\nGewicht: " + ((Book)Stocks[i]).Weight + " gram" +
-                    "\nStaand: " + ((Book)Stocks[i]).Measurement.Width + 
-                    " x " + ((Book)Stocks[i]).Measurement.Height + 
-                    " x "+ ((Book)Stocks[i]).Measurement.Lenght + " mm" +
-                    "\nAantal op voorraad: " + Stocks[i].GetStock() +
-                    "\nMaximaal aantal Boeken: " + ((Book)Stocks[i]).MaxStock +
-                    "\nMinimaal aantal Boeken: " + ((Book)Stocks[i]).MinStock +
-                    Environment.NewLine);
-                }
-                else
-                {
-                    Console.WriteLine("Titel Tijdschrift: " + Stocks[i].Title +
-                    "\nISSN: " + ((Magazine)Stocks[i]).ISSn +
-                    "\nAuteur: " + Stocks[i].Author +
-                    "\nTaal: " + Stocks[i].Language +
-                    "\nPrijs: " + Stocks[i].Price +
-                    "\nGewicht: " + ((Magazine)Stocks[i]).Weight + " gram" +
-                    "\nTotaal aantal voorrad: " + ((Magazine)Stocks[i]).TotalOrderMagazine +
-                    "\nStaand: " + ((Magazine)Stocks[i]).Measurement.Width + 
-                    " x " + ((Magazine)Stocks[i]).Measurement.Height + 
-                    " x " + ((Magazine)Stocks[i]).Measurement.Lenght + " mm" +
-                    "\nBestel dag: " + ((Magazine)Stocks[i]).DayOfOrder +
-                    "\nUitgifte dag: " + ((Magazine)Stocks[i]).DayOfRelease +
-                    Environment.NewLine);
-                }
-            }          
-        }
+        
     }
 }

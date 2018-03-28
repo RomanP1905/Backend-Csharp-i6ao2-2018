@@ -20,13 +20,13 @@ namespace BookstoreLibrary
         }
         #endregion
 
-        #region properties
-        public List<Product> Stocks { get; set; } = new List<Product>();
-        public OrderItems ObjOrderItems { get; set; }
+        
+
+        private static List<Product> productList = Product.GetTestData();
+
+        public List<Product> Stocks { get; set; }
         public string ContactInfo { get => contactInfo; set => contactInfo = value; }
         public string BusinessHours { get => businessHours; set => businessHours = value; }
-        #endregion
-
 
         //Verkopen van boeken methode via ISBN
         public static List<Product> SellBookByISBN(string iSBN, int soldBooks)
@@ -153,8 +153,6 @@ namespace BookstoreLibrary
             }
         }
 
-
-
         public static List<OrderList> CheckOrders()
         {
             List<Product> Stocks = Product.GetTestData();
@@ -186,6 +184,99 @@ namespace BookstoreLibrary
                 } 
             }
             return OrderListCol;
+        }
+
+        public static string ListOrders(List<OrderList> orderItemsList)
+        {
+            List<String> r1 = new List<String>();
+
+
+            foreach (var order in orderItemsList)
+            {
+                if (order.OrderProduct.Length == 13)
+                {
+                    string s1 = "Titel: " + order.OrderTitle + ", ISBN: " + order.OrderProduct + ", Aantal " + order.OrderAmount;
+                    r1.Add(s1);
+                }
+                else
+                {
+                    string s1 = "Titel: " + order.OrderTitle + ", ISSN: " + order.OrderProduct + ", Aantal " + order.OrderAmount;
+                    r1.Add(s1);
+                }
+            }
+
+            string r2 = "";
+
+            foreach (var listitem in r1)
+            {
+
+                r2 += listitem + " \n";
+            }
+
+
+            return
+
+                r2;
+        }
+
+        public static string ListProduct(List<Product> productList)
+        {
+            List<Product> Stocks = Product.GetTestData();
+            List<String> r1 = new List<String>();
+
+            for (int i = Stocks.Count - 1; i >= 0; i--)
+            {
+                Type typeCompare = Stocks[i].GetType();
+                if (typeCompare == typeof(Book))
+                {
+                    string s1 = "Titel Boek: " + Stocks[i].Title +
+                    "\nISBN: " + ((Book)Stocks[i]).ISBN +
+                    "\nAuteur: " + Stocks[i].Author +
+                    "\nTaal: " + Stocks[i].Language +
+                    "\nPrijs: " + Stocks[i].Price +
+                    "\nGewicht: " + ((Book)Stocks[i]).Weight + " gram" +
+                    "\nStaand: " + ((Book)Stocks[i]).Measurement.Width +
+                    " x " + ((Book)Stocks[i]).Measurement.Height +
+                    " x " + ((Book)Stocks[i]).Measurement.Lenght + " mm" +
+                    "\nAantal op voorraad: " + Stocks[i].GetStock() +
+                    "\nMaximaal aantal Boeken: " + ((Book)Stocks[i]).MaxStock +
+                    "\nMinimaal aantal Boeken: " + ((Book)Stocks[i]).MinStock +
+                    Environment.NewLine;
+                    r1.Add(s1);
+                    
+                }
+                else
+                {
+                    string s1 = "Titel Tijdschrift: " + Stocks[i].Title +
+                    "\nISSN: " + ((Magazine)Stocks[i]).ISSn +
+                    "\nAuteur: " + Stocks[i].Author +
+                    "\nTaal: " + Stocks[i].Language +
+                    "\nPrijs: " + Stocks[i].Price +
+                    "\nGewicht: " + ((Magazine)Stocks[i]).Weight + " gram" +
+                    "\nTotaal aantal voorrad: " + ((Magazine)Stocks[i]).TotalOrderMagazine +
+                    "\nStaand: " + ((Magazine)Stocks[i]).Measurement.Width +
+                    " x " + ((Magazine)Stocks[i]).Measurement.Height +
+                    " x " + ((Magazine)Stocks[i]).Measurement.Lenght + " mm" +
+                    "\nBestel dag: " + ((Magazine)Stocks[i]).DayOfOrder +
+                    "\nUitgifte dag: " + ((Magazine)Stocks[i]).DayOfRelease +
+                    Environment.NewLine;
+                    r1.Add(s1);
+
+                }           
+            }
+
+            string r2 = "";
+
+            foreach (var listitem in r1)
+            {
+
+                r2 += listitem + " \n";
+            }
+
+
+            return 
+                
+                r2;
         }
     }
 }
