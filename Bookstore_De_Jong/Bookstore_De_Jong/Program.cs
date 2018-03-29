@@ -23,10 +23,12 @@ namespace Bookstore_De_Jong
 
             do
             {
-                Console.WriteLine("[ 1 ] Print Stock");
-                Console.WriteLine("[ 2 ] Generate Order");
+                Console.WriteLine("[ 1 ] Print stock");
+                Console.WriteLine("[ 2 ] Generate order");
                 Console.WriteLine("[ 3 ] Sell book");
-                Console.WriteLine("[ 4 ] Add New Book or Magazine");
+                Console.WriteLine("[ 4 ] Add new book or magazine");
+                Console.WriteLine("[ 5 ] Delete a book or magazine");
+
 
                 while (!int.TryParse(Console.ReadLine(), out option))
                 {
@@ -42,13 +44,25 @@ namespace Bookstore_De_Jong
                     #endregion
                     #region Generate Order
                     case 2:
-                        Console.WriteLine(BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks)));
-                        Order todaysOrder = new Order();
-                        todaysOrder.OrderDate = DateTime.Today;
-                        todaysOrder.OrderHandled = false;
-                        todaysOrder.OrderList.Add(BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks)));
 
-                        OrderItems.OrderList.Add(todaysOrder);
+                        string orderString = BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks));
+
+                        Console.WriteLine(orderString);
+
+                        if (orderString != "")
+                        {
+                            Order todaysOrder = new Order();
+                            todaysOrder.OrderDate = DateTime.Today;
+                            todaysOrder.OrderHandled = false;
+                            todaysOrder.OrderList.Add(orderString);
+
+                            OrderItems.OrderList.Add(todaysOrder);
+                        }
+                        //else
+                        //{
+                        //    Console.WriteLine("No orders necessary at the moment.");
+                        //}
+                        
 
                         break; 
                     #endregion
@@ -352,20 +366,59 @@ namespace Bookstore_De_Jong
 
                                 measurementMag = new Measurement(widthMag, heightMag, lengthMag);
 
-
+                                BookStore.AddNewMagzine(dayOfRelease, dayOfOrder, issnMag, totalOrderAmountMag, titleMag, authorMag, weightMag, priceMag, languageMag, measurementMag, hengelo.Stocks);
 
                                 break;
 
                             default:
                                 break;
 
+
+                            
+
                            
                         }
 
                         break;
 
+                        case 5:
+                        Console.WriteLine("[ 1 ] Remove Book");
 
-                        
+                        Console.WriteLine("[ 2 ] Remove Magazine");
+
+
+                        while (!int.TryParse(Console.ReadLine(), out option))
+                        {
+                            Console.WriteLine("voer een getal in!");
+                        }
+                        switch (option)
+                        {
+                            case 1:
+                                string removeBookIsbn;
+
+                                Console.WriteLine("Enter the ISBN of the book you wish to remove");
+                                removeBookIsbn = Console.ReadLine();
+
+                                BookStore.RemoveBookFromStockByISBN(removeBookIsbn, hengelo.Stocks);
+
+                                break;
+
+                            case 2:
+                                string removeMagIssn;
+
+                                Console.WriteLine("Enter the ISSN of the magazine you wish to remove");
+                                removeMagIssn = Console.ReadLine();
+
+                                BookStore.RemoveMagazineFromStockByISSN(removeMagIssn, hengelo.Stocks);
+
+                                break;
+
+                            default:
+                                break;
+                        }
+                        break;
+
+
                     #endregion
                     #region Default
                     default:

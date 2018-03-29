@@ -170,6 +170,7 @@ namespace BookstoreLibrary
         {
             List<Product> Stocks = productList;
             List<string> OrderListCol = new List<string>();
+            bool noOrders = true;
 
             for (int i = Stocks.Count - 1; i >= 0; i--)
             {
@@ -179,6 +180,7 @@ namespace BookstoreLibrary
                     DateTime dt = DateTime.Today;
                     if (Convert.ToString(((Magazine)Stocks[i]).GetOrderDate()) == Convert.ToString(dt.DayOfWeek))
                     {
+                        noOrders = false;
                         int oa1 = ((Magazine)Stocks[i]).TotalOrderMagazine;
                         string t1 = ((Magazine)Stocks[i]).Title;
                         
@@ -192,6 +194,7 @@ namespace BookstoreLibrary
                 {
                     if(((Book)Stocks[i]).GetStock() < ((Book)Stocks[i]).GetMinStock())
                     {
+                        noOrders = false;
                         int oa1 = ((Book)Stocks[i]).GetMaxStock() - Stocks[i].GetStock();
                         string t1 = ((Book)Stocks[i]).Title;
                         string ol = "ISSN : " + Stocks[i].GetKey()
@@ -201,6 +204,12 @@ namespace BookstoreLibrary
                     }
                 } 
             }
+
+            if (noOrders)
+            {
+                Console.WriteLine("There are no products that need to be ordered at the moment.");
+            }
+            
             return OrderListCol;
         }
 
@@ -314,6 +323,48 @@ namespace BookstoreLibrary
         }
 
 
+        public static void RemoveBookFromStockByISBN(string isbn , List<Product> productList)
+        {
+            List<Product> Stocks = productList;
+
+
+            for (int i = Stocks.Count - 1; i >= 0; i--)
+            {
+                Type typeCompare = Stocks[i].GetType();
+                if (typeCompare == typeof(Book))
+                {
+                    if (((Book)Stocks[i]).ISBN == isbn)
+                    {
+                        Console.WriteLine("Removed Book: \"" + ((Book)Stocks[i]).Title + "\" ISBN: " + ((Book)Stocks[i]).ISBN);
+                        Stocks.Remove((Book)Stocks[i]);
+                    }
+                }
+            }
+            
+
+        }
+
+        public static void RemoveMagazineFromStockByISSN(string issn, List<Product> productList)
+        {
+            List<Product> Stocks = productList;
+
+
+            for (int i = Stocks.Count - 1; i >= 0; i--)
+            {
+                Type typeCompare = Stocks[i].GetType();
+                if (typeCompare == typeof(Magazine))
+                {
+                    if (((Magazine)Stocks[i]).ISSn == issn)
+                    {
+                        Console.WriteLine("Removed magazine: \"" + ((Magazine)Stocks[i]).Title + "\" ISSN: " + ((Magazine)Stocks[i]).ISSn);
+                        Stocks.Remove((Magazine)Stocks[i]);
+                        
+                    }
+                }
+            }
+
+
+        }
 
     }
 }
