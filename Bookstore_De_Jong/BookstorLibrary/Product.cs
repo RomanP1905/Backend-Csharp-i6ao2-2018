@@ -14,7 +14,7 @@ namespace BookstorLibrary
         English,
         German,
         French,
-        Unknow
+        Unknown
     }
     #endregion
 
@@ -69,7 +69,7 @@ namespace BookstorLibrary
                 "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(141, 218, 40)
                 ));
 
-            products.Add(new Book("2018", "9789048840243", 10, 50, 3, "Gordon",
+            products.Add(new Book("2018", "9789048840243", 10, 50, 15, "Gordon",
                 "Marcel Langedijk", 374, 19.99m, Language.Dutch, new Measurement(134, 213, 25)
                 ));
 

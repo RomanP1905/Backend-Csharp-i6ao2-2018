@@ -20,7 +20,13 @@ namespace BookstorLibrary
 
         #region properties
         public string PrintLastCode { get => printLastCode; set => printLastCode = value; }
-        public List<Order> OrderList { get; set; } = new List<Order>();
+        public static List<Order> OrderList { get; set; } = new List<Order>();
         #endregion
+
+
+
+
+
+        
     }
 }

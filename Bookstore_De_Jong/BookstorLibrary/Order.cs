@@ -24,5 +24,8 @@ namespace BookstorLibrary
         public bool OrderHandled { get => orderHandled; set => orderHandled = value; }
         public List<string> OrderList { get; set; } = new List<string>();
         #endregion
+
+
+
     }
 }
