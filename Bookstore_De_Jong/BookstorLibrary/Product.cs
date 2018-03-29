@@ -57,8 +57,6 @@ namespace BookstorLibrary
 
         public abstract int GetStock();
 
-        public abstract void SellItem();
-
         public abstract string PrintOrderRule();
 
         public static List<Product> GetTestData()

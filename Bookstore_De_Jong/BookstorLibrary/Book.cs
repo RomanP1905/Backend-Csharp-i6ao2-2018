@@ -84,11 +84,6 @@ namespace BookstorLibrary
             return Stock;
         }
 
-        public override void SellItem()
-        {
-            Stock--;
-        }
-
         public int GetMinStock()
         {
             return minStock;
