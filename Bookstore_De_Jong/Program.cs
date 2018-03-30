@@ -31,6 +31,7 @@ namespace Bookstore_De_Jong
                 Console.WriteLine("[ 6 ] Delete a book or magazine");
                 Console.WriteLine("[ 7 ] Mark last order as completed");
                 Console.WriteLine("[ 8 ] Show unhandled orders");
+                Console.WriteLine("[ 9 ] Find order by date");
 
 
                 while (!int.TryParse(Console.ReadLine(), out option))
@@ -485,8 +486,15 @@ namespace Bookstore_De_Jong
                     case 8:
                         BookStore.ListUnhandledOrders(OrderItems.OrderList);
                         break;
-
-
+                    case 9:
+                        string enteredDate;
+                        Console.WriteLine("Enter a date (day-month-year) example: 25-06-2017");
+                        enteredDate = Console.ReadLine();
+                        BookStore.SeeOrderByDate(enteredDate, OrderItems.OrderList);
+                        
+                        break;
+                    
+                    
                     #endregion
                     #region Default
                     default:

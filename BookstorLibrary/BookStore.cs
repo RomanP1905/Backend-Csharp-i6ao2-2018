@@ -458,7 +458,7 @@ namespace BookstoreLibrary
                         orderListString += orderitem + "\n";
                     }
 
-                    ordersString += "Order Date: " + order.OrderDate.ToString("MM/dd/yy") + " | " + orderListString;
+                    ordersString += "Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
                 }
                 if (trigger)
                 {
@@ -478,6 +478,42 @@ namespace BookstoreLibrary
 
         }
 
+        public static void SeeOrderByDate(string enteredDate, List<Order> orderList)
+        {
+            string listString = "Found Orders: \n";
+            bool trigger = false;
+            foreach(Order order in orderList)
+            {
+                string dateCompare = order.OrderDate.ToString("dd/MM/yyyy");
 
+                if (dateCompare == enteredDate)
+                {
+                    trigger = true;
+                    string orderListString = "";
+
+                    foreach (string orderitem in order.OrderList)
+                    {
+                        orderListString += orderitem + "\n";
+                    }
+
+                    listString += "Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
+                }
+                if (trigger)
+                {
+                    Console.WriteLine(listString);
+                    Console.WriteLine("Press any key to return back to the main menu...");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("No orders were found on the entered date. Press any key to continue...");
+                    Console.ReadKey();
+                }
+            }
+                
+        }
+
+
+
+        }
     }
-}
