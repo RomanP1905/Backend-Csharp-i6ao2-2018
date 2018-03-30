@@ -23,10 +23,14 @@ namespace Bookstore_De_Jong
 
             do
             {
-                Console.WriteLine("[ 1 ] Print Stock");
-                Console.WriteLine("[ 2 ] Generate Order");
+                Console.WriteLine("[ 1 ] Print stock");
+                Console.WriteLine("[ 2 ] Generate order");
                 Console.WriteLine("[ 3 ] Sell book");
-                Console.WriteLine("[ 4 ] Add New Book or Magazine");
+                Console.WriteLine("[ 4 ] Sell magazine");
+                Console.WriteLine("[ 5 ] Add new book or magazine");
+                Console.WriteLine("[ 6 ] Delete a book or magazine");
+                Console.WriteLine("[ 7 ] Mark last order as completed");
+
 
                 while (!int.TryParse(Console.ReadLine(), out option))
                 {
@@ -42,13 +46,25 @@ namespace Bookstore_De_Jong
                     #endregion
                     #region Generate Order
                     case 2:
-                        Console.WriteLine(BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks)));
-                        Order todaysOrder = new Order();
-                        todaysOrder.OrderDate = DateTime.Today;
-                        todaysOrder.OrderHandled = false;
-                        todaysOrder.OrderList.Add(BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks)));
 
-                        OrderItems.OrderList.Add(todaysOrder);
+                        string orderString = BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks));
+
+                        Console.WriteLine(orderString);
+
+                        if (orderString != "")
+                        {
+                            Order todaysOrder = new Order();
+                            todaysOrder.OrderDate = DateTime.Today;
+                            todaysOrder.OrderHandled = false;
+                            todaysOrder.OrderList.Add(orderString);
+
+                            OrderItems.OrderList.Add(todaysOrder);
+                        }
+                        //else
+                        //{
+                        //    Console.WriteLine("No orders necessary at the moment.");
+                        //}
+                        
 
                         break; 
                     #endregion
@@ -100,10 +116,24 @@ namespace Bookstore_De_Jong
 
 
 
-                        break; 
-                    #endregion
-                    #region Add new book or magazine
+                        break;
                     case 4:
+                        Console.WriteLine("Enter the ISSN");
+                        string issn = Console.ReadLine();
+
+                        Console.WriteLine("Enter the amount of sold magazines");
+                        int soldMagazines;
+                        while (!int.TryParse(Console.ReadLine(), out soldMagazines))
+                        {
+                            Console.WriteLine("Enter a number");
+                        }
+                        hengelo.Stocks = BookStore.SellMagazineByISSN(issn, soldMagazines, hengelo.Stocks);
+                        BookStore.ListProduct(hengelo.Stocks);
+
+                        break;
+                        #endregion
+                        #region Add new book or magazine
+                    case 5:
                         Console.WriteLine("[ 1 ] Add New Book");
                         Console.WriteLine("[ 2 ] Add New Magazine");
 
@@ -123,13 +153,22 @@ namespace Bookstore_De_Jong
                                 isbnBook = Console.ReadLine();
 
                                 Console.WriteLine("Enter minimum stock: ");
-                                Int32.TryParse(Console.ReadLine(), out minStockBook);
+                                while (!int.TryParse(Console.ReadLine(), out minStockBook))
+                                {
+                                    Console.WriteLine("Enter a number");
+                                }
 
                                 Console.WriteLine("Enter maximum stock: ");
-                                Int32.TryParse(Console.ReadLine(), out maxStockBook);
+                                while (!int.TryParse(Console.ReadLine(), out maxStockBook))
+                                {
+                                    Console.WriteLine("Enter a number");
+                                }
 
                                 Console.WriteLine("Enter current stock: ");
-                                Int32.TryParse(Console.ReadLine(), out stockBook);
+                                while (!int.TryParse(Console.ReadLine(), out stockBook))
+                                {
+                                    Console.WriteLine("Enter a number");
+                                }
 
                                 Console.WriteLine("Enter Title: ");
                                 titleBook = Console.ReadLine();
@@ -181,21 +220,40 @@ namespace Bookstore_De_Jong
 
 
                                 Console.WriteLine("Enter unit weight (gram): ");
-                                Int32.TryParse(Console.ReadLine(), out weightBook);
+                                while (!int.TryParse(Console.ReadLine(), out weightBook))
+                                {
+                                    Console.WriteLine("Enter a valid number");
+                                }
+
 
                                 Console.WriteLine("Enter unit price (Euro): ");
-                                Decimal.TryParse(Console.ReadLine(), out priceBook);
+                                Console.WriteLine("Enter unit weight (gram): ");
+                                while (!Decimal.TryParse(Console.ReadLine(), out priceBook))
+                                {
+                                    Console.WriteLine("Enter a valid decimal number (0,00)");
+                                }
 
                                 int width4;
                                 int length4;
                                 int height4;
 
                                 Console.WriteLine("Enter Width (mm): ");
-                                Int32.TryParse(Console.ReadLine(), out width4);
+                                while (!int.TryParse(Console.ReadLine(), out width4))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
+
                                 Console.WriteLine("Enter Length (mm): ");
-                                Int32.TryParse(Console.ReadLine(), out length4);
+                                while (!int.TryParse(Console.ReadLine(), out length4))
+                                {
+                                    Console.WriteLine("Enter a valid length number");
+                                }
+
                                 Console.WriteLine("Enter Height (mm): ");
-                                Int32.TryParse(Console.ReadLine(), out height4);
+                                while (!int.TryParse(Console.ReadLine(), out height4))
+                                {
+                                    Console.WriteLine("Enter a valid height number");
+                                }
 
                                 measurementBook = new Measurement(width4, height4, length4);
 
@@ -206,11 +264,6 @@ namespace Bookstore_De_Jong
                                 break;
 
                             case 2:
-
-                                
-
-
-                                //Magazine add cod ehier
                                 BookstorLibrary.DayOfWeek dayOfRelease; BookstorLibrary.DayOfWeek dayOfOrder; string issnMag; int totalOrderAmountMag; string titleMag; string authorMag; int weightMag; decimal priceMag; Language languageMag; Measurement measurementMag;
                                 Console.WriteLine("Enter ISSN");
                                 issnMag = Console.ReadLine();
@@ -352,20 +405,67 @@ namespace Bookstore_De_Jong
 
                                 measurementMag = new Measurement(widthMag, heightMag, lengthMag);
 
-
+                                BookStore.AddNewMagzine(dayOfRelease, dayOfOrder, issnMag, totalOrderAmountMag, titleMag, authorMag, weightMag, priceMag, languageMag, measurementMag, hengelo.Stocks);
 
                                 break;
 
                             default:
                                 break;
 
+
+                            
+
                            
                         }
 
                         break;
 
+                        case 6:
+                        Console.WriteLine("[ 1 ] Remove Book");
 
+                        Console.WriteLine("[ 2 ] Remove Magazine");
+
+
+                        while (!int.TryParse(Console.ReadLine(), out option))
+                        {
+                            Console.WriteLine("voer een getal in!");
+                        }
+                        switch (option)
+                        {
+                            case 1:
+                                string removeBookIsbn;
+
+                                Console.WriteLine("Enter the ISBN of the book you wish to remove");
+                                removeBookIsbn = Console.ReadLine();
+
+                                BookStore.RemoveBookFromStockByISBN(removeBookIsbn, hengelo.Stocks);
+
+                                break;
+
+                            case 2:
+                                string removeMagIssn;
+
+                                Console.WriteLine("Enter the ISSN of the magazine you wish to remove");
+                                removeMagIssn = Console.ReadLine();
+
+                                BookStore.RemoveMagazineFromStockByISSN(removeMagIssn, hengelo.Stocks);
+
+                                break;
+
+                            default:
+                                break;
+                        }
+                        break;
+                    case 7:
+
+                        Console.WriteLine("------------------------------ Last Order ------------------------------");
+                        BookStore.ListLastOrder(OrderItems.OrderList);
                         
+
+                        break;
+
+
+
                     #endregion
                     #region Default
                     default:

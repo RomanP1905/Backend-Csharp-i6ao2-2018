@@ -67,11 +67,6 @@ namespace BookstorLibrary
             return TotalOrderMagazine;
         }
 
-        public override void SellItem()
-        {
-            TotalOrderMagazine--;
-        }
-
         public override string GetTitle()
         {
             return Title;

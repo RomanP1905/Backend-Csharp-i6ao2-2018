@@ -57,15 +57,13 @@ namespace BookstorLibrary
 
         public abstract int GetStock();
 
-        public abstract void SellItem();
-
         public abstract string PrintOrderRule();
 
         public static List<Product> GetTestData()
         {
             List<Product> products = new List<Product>();
 
-            products.Add(new Book("2017", "9789022580196", 5, 12, 12, "De verloren familie",
+            products.Add(new Book("2017", "9789022580196", 5, 12, 3, "De verloren familie",
                 "Jenna Blum", 585, 19.99m, Language.Dutch, new Measurement(141, 218, 40)
                 ));
 
