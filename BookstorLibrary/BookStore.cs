@@ -253,11 +253,14 @@ namespace BookstoreLibrary
 
             string r2 = "";
 
-            foreach (var listitem in r1)
-            {
+            //foreach (var listitem in r1)
+            //{
+                if(r1.Count != 0)
+                {
+                r2 = r1[r1.Count - 1] + " \n";
+                }
 
-                r2 += listitem + " \n";
-            }
+            //}
 
 
             return
@@ -453,7 +456,10 @@ namespace BookstoreLibrary
             string ordersString = "";
 
             foreach (Order order in orderList)
-            {
+               {
+
+
+
                 if (!order.OrderHandled)
                 {
                     trigger = true;
@@ -461,6 +467,7 @@ namespace BookstoreLibrary
 
                     foreach (string orderitem in order.OrderList)
                     {
+                        //string orderC = orderC1.OrderList[orderC1.OrderList.Count - 1];
                         orderListString += orderitem + "\n";
                     }
 

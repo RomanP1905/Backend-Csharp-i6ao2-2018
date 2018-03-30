@@ -34,6 +34,7 @@ namespace Bookstore_De_Jong
                 Console.WriteLine("[ 8 ] Show unhandled orders");
                 Console.WriteLine("[ 9 ] Find order by date");
                 Console.WriteLine("[ 10 ] Change stock constraints");
+                Console.WriteLine("[ 11 ] Manually order a product");
 
 
                 while (!int.TryParse(Console.ReadLine(), out option))
@@ -60,12 +61,16 @@ namespace Bookstore_De_Jong
 
                         if (orderString != "")
                         {
+
+
                             Order todaysOrder = new Order();
                             todaysOrder.OrderDate = DateTime.Today;
                             todaysOrder.OrderHandled = false;
                             todaysOrder.OrderList.Add(orderString);
 
                             OrderItems.OrderList.Add(todaysOrder);
+
+
                         }
                         Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
@@ -446,7 +451,7 @@ namespace Bookstore_De_Jong
                         
                         while (!int.TryParse(Console.ReadLine(), out option))
                         {
-                            Console.WriteLine("voer een getal in!");
+                            Console.WriteLine("Enter a valid number!");
                         }
                         switch (option)
                         {
@@ -503,7 +508,7 @@ namespace Bookstore_De_Jong
 
                         while (!int.TryParse(Console.ReadLine(), out option))
                         {
-                            Console.WriteLine("voer een getal in!");
+                            Console.WriteLine("Enter a valid number!");
                         }
                         switch (option)
                         {
@@ -513,6 +518,61 @@ namespace Bookstore_De_Jong
 
                             case 2:
                                 BookStore.ChangeMagazineStockConstraints(hengelo.Stocks);
+                                break;
+                        }
+
+                        break;
+                    case 11:
+                        Console.Clear();
+                        Console.WriteLine("[ 1 ] Order book");
+                        Console.WriteLine("[ 2 ] Order magazine");
+                        string orderStringManual;
+                        while (!int.TryParse(Console.ReadLine(), out option))
+                        {
+                            Console.WriteLine("Enter a valid number!");
+                        }
+                        switch (option)
+                        {
+                            case 1:
+                                orderStringManual = BookStore.ListOrders(Book.OrderBookByISBN(hengelo.Stocks));
+
+                                Console.WriteLine(orderStringManual);
+
+                                if (orderStringManual != "")
+                                {
+                                    
+                                    Order manOrderBook = new Order();
+                                    manOrderBook.OrderDate = DateTime.Today;
+                                    manOrderBook.OrderHandled = false;
+                                    manOrderBook.OrderList.Add(orderStringManual);
+
+                                        OrderItems.OrderList.Add(manOrderBook);
+
+                                }
+                                Console.WriteLine("Press any key to continue...");
+                                Console.ReadKey();
+                                break;
+                            case 2:
+                                orderStringManual = BookStore.ListOrders(Magazine.OrderMagazineByISSN(hengelo.Stocks));
+
+                                Console.WriteLine(orderStringManual);
+
+                                if (orderStringManual != "")
+                                {
+
+                                    Order manOrderMagazine = new Order();
+                                    manOrderMagazine.OrderDate = DateTime.Today;
+                                    manOrderMagazine.OrderHandled = false;
+                                    manOrderMagazine.OrderList.Add(orderStringManual);
+                                    OrderItems.OrderList.Add(manOrderMagazine);
+
+
+                                }
+                                Console.WriteLine("Press any key to continue...");
+                                Console.ReadKey();
+                                break;
+
+                            default:
                                 break;
                         }
 

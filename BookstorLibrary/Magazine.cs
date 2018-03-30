@@ -72,6 +72,62 @@ namespace BookstorLibrary
             return Title;
         }
 
+        public static List<string> OrderMagazineByISSN(List<Product> productList)
+        {
+
+            List<string> OrderListCol = new List<string>();
+            string issn;
+
+            Console.WriteLine("Enter the issn of the magazine you would like to order");
+            issn = Console.ReadLine();
+            bool trigger = true;
+
+            for (int i = productList.Count - 1; i >= 0; i--)
+            {
+                Type typeCompare = productList[i].GetType();
+                if (typeCompare == typeof(Magazine))
+                {
+
+                    if (((Magazine)productList[i]).iSSn == issn)
+                    {
+                        int orderAmount;
+                        Console.WriteLine("Enter the amount you would like to order");
+                        while (!int.TryParse(Console.ReadLine(), out orderAmount))
+                        {
+                            Console.WriteLine("Enter a number!");
+                        }
+                        int oa1 = orderAmount;
+
+                        ((Magazine)productList[i]).TotalOrderMagazine = ((Magazine)productList[i]).TotalOrderMagazine + oa1;
+                        string t1 = ((Magazine)productList[i]).Title;
+
+                        string orderL = "ISBN : " + productList[i].GetKey() + " | "
+                            + " Titel: " + t1 + " | "
+                            + " To Order: " + oa1;
+
+                        OrderListCol.Add(orderL);
+                        trigger = false;
+                    }
+
+                }
+
+
+
+            }
+            if (trigger)
+            {
+                Console.WriteLine("No magazine found with this ISSN");
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+
+
+            return OrderListCol;
+
+
+        }
+
+
         #endregion
     }
 }
