@@ -23,6 +23,7 @@ namespace Bookstore_De_Jong
 
             do
             {
+                Console.Clear();
                 Console.WriteLine("[ 1 ] Print stock");
                 Console.WriteLine("[ 2 ] Generate order");
                 Console.WriteLine("[ 3 ] Sell book");
@@ -32,6 +33,7 @@ namespace Bookstore_De_Jong
                 Console.WriteLine("[ 7 ] Mark last order as completed");
                 Console.WriteLine("[ 8 ] Show unhandled orders");
                 Console.WriteLine("[ 9 ] Find order by date");
+                Console.WriteLine("[ 10 ] Change stock constraints");
 
 
                 while (!int.TryParse(Console.ReadLine(), out option))
@@ -43,12 +45,15 @@ namespace Bookstore_De_Jong
                 {
                     #region Print Stock
                     case 1:
+                        Console.Clear();
                         Console.WriteLine(BookStore.ListProduct(hengelo.Stocks));
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
                         break; 
                     #endregion
                     #region Generate Order
                     case 2:
-
+                        Console.Clear();
                         string orderString = BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks));
 
                         Console.WriteLine(orderString);
@@ -62,11 +67,9 @@ namespace Bookstore_De_Jong
 
                             OrderItems.OrderList.Add(todaysOrder);
                         }
-                        //else
-                        //{
-                        //    Console.WriteLine("No orders necessary at the moment.");
-                        //}
-                        
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+
 
                         break; 
                     #endregion
@@ -432,20 +435,15 @@ namespace Bookstore_De_Jong
                             default:
                                 break;
 
-
-                            
-
-                           
                         }
 
                         break;
 
                         case 6:
+                        Console.Clear();
                         Console.WriteLine("[ 1 ] Remove Book");
-
                         Console.WriteLine("[ 2 ] Remove Magazine");
-
-
+                        
                         while (!int.TryParse(Console.ReadLine(), out option))
                         {
                             Console.WriteLine("voer een getal in!");
@@ -480,20 +478,46 @@ namespace Bookstore_De_Jong
 
                         Console.WriteLine("------------------------------ Last Order ------------------------------");
                         BookStore.ListLastOrder(OrderItems.OrderList);
-                        
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
 
                         break;
                     case 8:
+                        Console.Clear();
                         BookStore.ListUnhandledOrders(OrderItems.OrderList);
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
                         break;
                     case 9:
+                        Console.Clear();
                         string enteredDate;
                         Console.WriteLine("Enter a date (day-month-year) example: 25-06-2017");
                         enteredDate = Console.ReadLine();
                         BookStore.SeeOrderByDate(enteredDate, OrderItems.OrderList);
                         
                         break;
-                    
+                    case 10:
+                        Console.Clear();
+                        Console.WriteLine("[ 1 ] Change book constraints");
+                        Console.WriteLine("[ 2 ] Change magazine constraints");
+
+                        while (!int.TryParse(Console.ReadLine(), out option))
+                        {
+                            Console.WriteLine("voer een getal in!");
+                        }
+                        switch (option)
+                        {
+                            case 1:
+                                BookStore.ChangeBookStockConstraints(hengelo.Stocks);
+                                break;
+
+                            case 2:
+                                BookStore.ChangeMagazineStockConstraints(hengelo.Stocks);
+                                break;
+                        }
+
+                        break;
+
                     
                     #endregion
                     #region Default

@@ -70,7 +70,8 @@ namespace BookstoreLibrary
                         }
                         else
                         {
-                            throw new System.ArgumentException("Sold books are higher than stock");
+                            Console.WriteLine("Sold books are higher than stock!");
+                            Console.ReadKey();
                         }
                     }
                 }
@@ -120,7 +121,8 @@ namespace BookstoreLibrary
 
                     else
                     {
-                        throw new System.ArgumentException("Sold books are higher than stock");
+                        Console.WriteLine("Sold books are higher than stock!");
+                        Console.ReadKey();
                     }
                 }
             }
@@ -201,6 +203,7 @@ namespace BookstoreLibrary
                     {
                         noOrders = false;
                         int oa1 = ((Magazine)Stocks[i]).TotalOrderMagazine;
+                        ((Magazine)Stocks[i]).TotalOrderMagazine = ((Magazine)Stocks[i]).TotalOrderMagazine + oa1;
                         string t1 = ((Magazine)Stocks[i]).Title;
                         
                         string ol = "ISSN : " + Stocks[i].GetKey() + " | "
@@ -215,6 +218,7 @@ namespace BookstoreLibrary
                     {
                         noOrders = false;
                         int oa1 = ((Book)Stocks[i]).GetMaxStock() - Stocks[i].GetStock();
+                        ((Book)Stocks[i]).Stock = ((Book)Stocks[i]).Stock + oa1;
                         string t1 = ((Book)Stocks[i]).Title;
                         string ol = "ISBN : " + Stocks[i].GetKey() + " | "
                             + " Titel: " + t1 + " | "
@@ -422,6 +426,8 @@ namespace BookstoreLibrary
                     if (option == 1)
                     {
                         orderListHolder[i].OrderHandled = true;
+                        Console.WriteLine("Order has been marked as handled");
+                        
                     }
 
 
@@ -513,7 +519,103 @@ namespace BookstoreLibrary
                 
         }
 
+        public static void ChangeBookStockConstraints(List<Product> productList)
+        {
+            List<Product> Stocks = productList;
+            string isbn;
+            int minStock;
+            int maxStock;
 
+            Console.WriteLine("Enter the ISBN of the book you wish to change the constraints of");
+            isbn = Console.ReadLine();
+
+            for (int i = Stocks.Count - 1; i >= 0; i--)
+            {
+
+                Type typeCompare = Stocks[i].GetType();
+                if (typeCompare == typeof(Book))
+                {
+
+
+                    if (((Book)Stocks[i]).ISBN == isbn)
+                    {
+                        Console.WriteLine("Enter the new minimum stock (enter 0 to make no changes)");
+                        while (!int.TryParse(Console.ReadLine(), out minStock))
+                        {
+                            Console.WriteLine("Enter a valid width number");
+                        }
+
+                        Console.WriteLine("Enter the new maximum stock (enter 0 to make no changes)");
+                        while (!int.TryParse(Console.ReadLine(), out maxStock))
+                        {
+                            Console.WriteLine("Enter a valid width number");
+                        }
+
+                        if(minStock != 0)
+                        {
+                            ((Book)Stocks[i]).MinStock = minStock;
+                        }
+
+                        if (maxStock != 0)
+                        {
+                            ((Book)Stocks[i]).MaxStock = maxStock;
+                        }
+
+                        Console.WriteLine("{0} new minimum stock: {1} - new maximum stock: {2}", ((Book)Stocks[i]).Title, minStock, maxStock);
+
+                    }
+                }
+            }
+
+
+        }
+
+        public static void ChangeMagazineStockConstraints(List<Product> productList)
+        {
+            List<Product> Stocks = productList;
+            string issn;
+            int orderChange;
+
+            Console.WriteLine("Enter the ISNN of the magazine you wish to change the constraints of");
+            issn = Console.ReadLine();
+
+
+            for (int i = Stocks.Count - 1; i >= 0; i--)
+            {
+
+                Type typeCompare = Stocks[i].GetType();
+                if (typeCompare == typeof(Magazine))
+                {
+
+                    
+
+
+                    if (((Magazine)Stocks[i]).ISSn == issn)
+                    {
+                        Console.WriteLine("Enter the new order amount (enter 0 to make no changes)");
+                        while (!int.TryParse(Console.ReadLine(), out orderChange))
+                        {
+                            Console.WriteLine("Enter a valid width number");
+                        }
+
+                        
+
+                        if (orderChange != 0)
+                        {
+                            ((Magazine)Stocks[i]).TotalOrderMagazine = orderChange;
+                        }
+
+                        Console.WriteLine("{0} new order amount: {1}", ((Magazine)Stocks[i]).Title, orderChange);
+                        Console.WriteLine("Press any key to return to the menu...");
+
+                        Console.ReadKey();
+
+                    }
+                }
+            }
+
+
+        }
 
         }
     }
