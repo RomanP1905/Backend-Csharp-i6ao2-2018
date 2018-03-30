@@ -331,7 +331,7 @@ namespace BookstoreLibrary
 
         }
 
-        public static void AddNewMagzine(BookstorLibrary.DayOfWeek dayOfRelease, BookstorLibrary.DayOfWeek dayOfOrder, string iSSn, int totalOrderMagazine, string title, string author, int weight, decimal price, Language language, Measurement measurement, List<Product> productList)
+        public static void AddNewMagazine(BookstorLibrary.DayOfWeek dayOfRelease, BookstorLibrary.DayOfWeek dayOfOrder, string iSSn, int totalOrderMagazine, string title, string author, int weight, decimal price, Language language, Measurement measurement, List<Product> productList)
         {
 
             List<Product> Stocks = productList;
@@ -441,7 +441,42 @@ namespace BookstoreLibrary
 
         }
 
+        public static void ListUnhandledOrders(List<Order> orderList)
+        {
+            bool trigger = false;
+            string ordersString = "";
 
+            foreach (Order order in orderList)
+            {
+                if (!order.OrderHandled)
+                {
+                    trigger = true;
+                    string orderListString = "";
+
+                    foreach (string orderitem in order.OrderList)
+                    {
+                        orderListString += orderitem + "\n";
+                    }
+
+                    ordersString += "Order Date: " + order.OrderDate.ToString("MM/dd/yy") + " | " + orderListString;
+                }
+                if (trigger)
+                {
+                    Console.WriteLine(ordersString);
+                }
+                else
+                {
+                    Console.WriteLine("No unhandled orders were found. Press any key to continue...");
+                    Console.ReadKey();
+                }
+
+            }
+
+            
+            
+
+
+        }
 
 
     }

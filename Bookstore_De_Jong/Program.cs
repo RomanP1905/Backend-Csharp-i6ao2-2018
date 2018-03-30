@@ -16,8 +16,8 @@ namespace Bookstore_De_Jong
         {
             BookStore hengelo = new BookStore();
             hengelo.Stocks = Product.GetTestData();
-            hengelo.BusinessHours = "Ma-Vr 8:00 - 15:00";
-            hengelo.ContactInfo = "Vind me op mijn website: www.bookstore-hengelo.nl";
+            hengelo.BusinessHours = "Mo-Vr 8:00 - 15:00";
+            hengelo.ContactInfo = "Find me on my website: www.bookstore-hengelo.nl";
 
             int option;
 
@@ -30,11 +30,12 @@ namespace Bookstore_De_Jong
                 Console.WriteLine("[ 5 ] Add new book or magazine");
                 Console.WriteLine("[ 6 ] Delete a book or magazine");
                 Console.WriteLine("[ 7 ] Mark last order as completed");
+                Console.WriteLine("[ 8 ] Show unhandled orders");
 
 
                 while (!int.TryParse(Console.ReadLine(), out option))
                 {
-                    Console.WriteLine("voer een getal in!");
+                    Console.WriteLine("Enter a number!");
                 }
 
                 switch (option)
@@ -75,36 +76,36 @@ namespace Bookstore_De_Jong
                         Console.WriteLine("[ 2 ] Sell book by ISBN");
                         while (!int.TryParse(Console.ReadLine(), out option))
                         {
-                            Console.WriteLine("voer een getal in!");
+                            Console.WriteLine("Enter a number!");
                         }
                         switch (option)
                         {
                             case 1:
-                                Console.WriteLine("Voer de titel in");
+                                Console.WriteLine("Enter the title");
                                 string titel = Console.ReadLine();
 
-                                Console.WriteLine("Voer de auteur in");
+                                Console.WriteLine("Enter the author");
                                 string author = Console.ReadLine();
 
-                                Console.WriteLine("Voer het aantal verkochte boeken in");
+                                Console.WriteLine("Enter the amount of sold books");
                                 int soldBooks;
                                 while (!int.TryParse(Console.ReadLine(), out soldBooks))
                                 {
-                                    Console.WriteLine("voer een getal in!");
+                                    Console.WriteLine("Enter a number!");
                                 }
                                 hengelo.Stocks = BookStore.SellBookByTitle(titel, author, soldBooks, hengelo.Stocks);
                                 BookStore.ListProduct(hengelo.Stocks);
                                 break;
 
                             case 2:
-                                Console.WriteLine("Voer de ISBN in");
+                                Console.WriteLine("Enter the ISBN");
                                 string isbn = Console.ReadLine();
 
-                                Console.WriteLine("Voer het aantal verkochte boeken in");
+                                Console.WriteLine("Enter the amount of sold books");
                                 int soldBooks2;
                                 while (!int.TryParse(Console.ReadLine(), out soldBooks2))
                                 {
-                                    Console.WriteLine("voer een getal in!");
+                                    Console.WriteLine("Enter a number!");
                                 }
                                 hengelo.Stocks = BookStore.SellBookByISBN(isbn, soldBooks2, hengelo.Stocks);
                                 BookStore.ListProduct(hengelo.Stocks);
@@ -269,7 +270,10 @@ namespace Bookstore_De_Jong
                                 issnMag = Console.ReadLine();
 
                                 Console.WriteLine("Enter amount to order");
-                                Int32.TryParse(Console.ReadLine(), out totalOrderAmountMag);
+                                while (!int.TryParse(Console.ReadLine(), out totalOrderAmountMag))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
 
                                 Console.WriteLine("Pick a release day");
                                 Console.WriteLine("[1 - 5] Days of the week (Monday - Friday)");
@@ -387,25 +391,40 @@ namespace Bookstore_De_Jong
 
 
                                 Console.WriteLine("Enter unit weight (gram): ");
-                                Int32.TryParse(Console.ReadLine(), out weightMag);
+                                while (!int.TryParse(Console.ReadLine(), out weightMag))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
 
                                 Console.WriteLine("Enter unit price (Euro): ");
-                                Decimal.TryParse(Console.ReadLine(), out priceMag);
+                                while (!Decimal.TryParse(Console.ReadLine(), out priceMag))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
 
                                 int widthMag;
                                 int lengthMag;
                                 int heightMag;
 
                                 Console.WriteLine("Enter Width (mm): ");
-                                Int32.TryParse(Console.ReadLine(), out widthMag);
+                                while (!int.TryParse(Console.ReadLine(), out widthMag))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
                                 Console.WriteLine("Enter Length (mm): ");
-                                Int32.TryParse(Console.ReadLine(), out lengthMag);
+                                while (!int.TryParse(Console.ReadLine(), out lengthMag))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
                                 Console.WriteLine("Enter Height (mm): ");
-                                Int32.TryParse(Console.ReadLine(), out heightMag);
+                                while (!int.TryParse(Console.ReadLine(), out heightMag))
+                                {
+                                    Console.WriteLine("Enter a valid width number");
+                                }
 
                                 measurementMag = new Measurement(widthMag, heightMag, lengthMag);
 
-                                BookStore.AddNewMagzine(dayOfRelease, dayOfOrder, issnMag, totalOrderAmountMag, titleMag, authorMag, weightMag, priceMag, languageMag, measurementMag, hengelo.Stocks);
+                                BookStore.AddNewMagazine(dayOfRelease, dayOfOrder, issnMag, totalOrderAmountMag, titleMag, authorMag, weightMag, priceMag, languageMag, measurementMag, hengelo.Stocks);
 
                                 break;
 
@@ -463,7 +482,9 @@ namespace Bookstore_De_Jong
                         
 
                         break;
-
+                    case 8:
+                        BookStore.ListUnhandledOrders(OrderItems.OrderList);
+                        break;
 
 
                     #endregion
