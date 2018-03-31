@@ -454,6 +454,8 @@ namespace BookstoreLibrary
         {
             bool trigger = false;
             string ordersString = "";
+            int index = 0;
+            int selectedIndex = -1;
 
             foreach (Order order in orderList)
                {
@@ -469,24 +471,44 @@ namespace BookstoreLibrary
                     {
                         
                         orderListString += orderitem + "\n";
+
                     }
 
-                    ordersString = "Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
+
+                    ordersString = "[ " + index + " ] Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
+                    index++; 
                 }
-                if (trigger)
-                {
-                    Console.WriteLine(ordersString);
-                }
-                else
-                {
-                    Console.WriteLine("No unhandled orders were found. Press any key to continue...");
-                    Console.ReadKey();
-                }
+                
 
             }
 
+            if (trigger)
+            {
+                Console.WriteLine(ordersString);
+
+            }
+            else
+            {
+                Console.WriteLine("No unhandled orders were found. Press any key to continue...");
+                Console.ReadKey();
+            }
+
+            if (ordersString != "")
+            {
+                Console.WriteLine("Select a record to delete.");
+                while (!int.TryParse(Console.ReadLine(), out selectedIndex))
+                {
+                    Console.WriteLine("Enter a number!");
+                }
+                if (selectedIndex != -1)
+                {
+                    Order.RemoveOrderByIndex(selectedIndex, orderList);
+                }
+            }
             
-            
+
+
+
 
 
         }

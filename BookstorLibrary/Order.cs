@@ -25,8 +25,16 @@ namespace BookstorLibrary
         public List<string> OrderList { get; set; } = new List<string>();
         #endregion
 
-        
 
+        public static void RemoveOrderByIndex(int index, List<Order> orderList)
+        {
+            
+
+            orderList.RemoveAt(index);
+
+            Console.WriteLine("Item removed at index: " + index);
+        
+        }
 
 
     }

@@ -506,8 +506,7 @@ namespace Bookstore_De_Jong
                     case 8:
                         Console.Clear();
                         BookStore.ListUnhandledOrders(OrderItems.OrderList);
-                        Console.WriteLine("Press any key to continue...");
-                        Console.ReadKey();
+
                         break;
                     case 9:
                         Console.Clear();
