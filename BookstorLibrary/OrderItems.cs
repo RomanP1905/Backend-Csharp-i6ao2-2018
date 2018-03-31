@@ -24,9 +24,18 @@ namespace BookstorLibrary
         #endregion
 
 
+        public static void RemoveOrderByIndex(int index)
+        {
+
+
+            OrderList.RemoveAt(index);
+
+            Console.WriteLine("Item removed at index: " + index + " Press any key to continue...");
+            Console.ReadKey();
+
+        }
 
 
 
-        
     }
 }

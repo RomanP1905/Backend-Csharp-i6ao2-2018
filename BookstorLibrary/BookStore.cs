@@ -35,6 +35,7 @@ namespace BookstoreLibrary
         {
             
             List<Product> Stocks = productList;
+            bool haveFound = false;
             for (int i = Stocks.Count - 1; i >= 0; i--)
             {
 
@@ -50,7 +51,7 @@ namespace BookstoreLibrary
 
                         if (bookStock >= soldBooks)
                         {
-
+                            haveFound = true;
                             for (int j = 0; j < soldBooks; j++)
                             {
                                 ((Book)Stocks[i]).Stock--;
@@ -66,6 +67,8 @@ namespace BookstoreLibrary
                                 " \n Total Price: " + soldBooks * ((Book)Stocks[i]).Price
 
                                 );
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
 
                         }
                         else
@@ -77,6 +80,13 @@ namespace BookstoreLibrary
                 }
 
             }
+            if (!haveFound)
+            {
+                Console.WriteLine("Your entry does not match any books in the database");
+                Console.ReadKey();
+
+            }
+
             return Stocks;
         }
 
@@ -91,13 +101,15 @@ namespace BookstoreLibrary
                 Type typeCompare = Stocks[i].GetType();
                 if (typeCompare == typeof(Book))
                 {
-                    int bookStock = Stocks[i].GetStock();
+                    string titleKey = Stocks[i].GetTitle();
+                    if (titleKey == title)
+                    {
+                        int bookStock = Stocks[i].GetStock();
 
                     if (bookStock > soldBooks)
                     {
-                        string titleKey = Stocks[i].GetTitle();
-                        if (titleKey == title)
-                        {
+                        
+                        
                             haveFound = true;
                             for (int j = 0; j < soldBooks; j++)
                             {
@@ -113,17 +125,20 @@ namespace BookstoreLibrary
                                 " \n Total Price: " + soldBooks * ((Book)Stocks[i]).Price
 
                                 );
+
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
+                     }
+
+                        else
+                        {
+                            Console.WriteLine("Sold books are higher than stock!");
+                            Console.ReadKey();
                         }
 
-
-
                     }
 
-                    else
-                    {
-                        Console.WriteLine("Sold books are higher than stock!");
-                        Console.ReadKey();
-                    }
+                    
                 }
             }
             if (!haveFound)
@@ -137,6 +152,9 @@ namespace BookstoreLibrary
         //Verkopen van boeken methode via ISBN
         public static List<Product> SellMagazineByISSN(string issn, int soldmagazine, List<Product> Stocks)
         {
+
+
+
             for (int i = Stocks.Count - 1; i >= 0; i--)
             {
 
@@ -145,13 +163,14 @@ namespace BookstoreLibrary
 
                 if (typeCompare == typeof(Magazine))
                 {
-                    int magazineStock = Stocks[i].GetStock();
+                    string key = Stocks[i].GetKey();
+                    if (key == issn)
+                    {
+                        int magazineStock = Stocks[i].GetStock();
 
                     if (magazineStock > soldmagazine)
                     {
-                        string key = Stocks[i].GetKey();
-                        if (key == issn)
-                        {
+                        
                             for (int j = 0; j < soldmagazine; j++)
                             {
                                 ((Magazine)Stocks[i]).TotalOrderMagazine--;
@@ -166,17 +185,22 @@ namespace BookstoreLibrary
                             " \n Total Price: " + soldmagazine * ((Magazine)Stocks[i]).Price
 
                             );
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
                         }
+                        
                         else
                         {
-                            throw new System.ArgumentException("No such book ISBN exists.");
+                            Console.WriteLine("Sold books are higher than stock");
+                            Console.ReadKey();
                         }
-
                     }
                     else
                     {
-                        throw new System.ArgumentException("Sold books are higher than stock");
+                        Console.WriteLine("No such book ISBN exists.");
+                        Console.ReadKey();
                     }
+
                 }
 
             }
@@ -478,23 +502,25 @@ namespace BookstoreLibrary
                     ordersString = "[ " + index + " ] Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
                     index++; 
                 }
-                
 
+                if (trigger)
+                {
+                    Console.WriteLine(ordersString);
+
+                }
+                else
+                {
+                    Console.WriteLine("No unhandled orders were found. Press any key to continue...");
+                    Console.ReadKey();
+                }
             }
 
-            if (trigger)
-            {
-                Console.WriteLine(ordersString);
 
-            }
-            else
-            {
-                Console.WriteLine("No unhandled orders were found. Press any key to continue...");
-                Console.ReadKey();
-            }
 
             if (ordersString != "")
             {
+
+
                 Console.WriteLine("Select a record to delete.");
                 while (!int.TryParse(Console.ReadLine(), out selectedIndex))
                 {
@@ -502,7 +528,7 @@ namespace BookstoreLibrary
                 }
                 if (selectedIndex != -1)
                 {
-                    Order.RemoveOrderByIndex(selectedIndex, orderList);
+                    OrderItems.RemoveOrderByIndex(selectedIndex);
                 }
             }
             
