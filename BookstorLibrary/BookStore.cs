@@ -253,14 +253,14 @@ namespace BookstoreLibrary
 
             string r2 = "";
 
-            //foreach (var listitem in r1)
-            //{
+                foreach (var listitem in r1)
+              {
                 if(r1.Count != 0)
                 {
                 r2 = r1[r1.Count - 1] + " \n";
                 }
 
-            //}
+              }
 
 
             return
@@ -467,11 +467,11 @@ namespace BookstoreLibrary
 
                     foreach (string orderitem in order.OrderList)
                     {
-                        //string orderC = orderC1.OrderList[orderC1.OrderList.Count - 1];
+                        
                         orderListString += orderitem + "\n";
                     }
 
-                    ordersString += "Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
+                    ordersString = "Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
                 }
                 if (trigger)
                 {

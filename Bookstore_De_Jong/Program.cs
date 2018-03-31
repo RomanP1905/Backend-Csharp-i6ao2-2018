@@ -55,23 +55,39 @@ namespace Bookstore_De_Jong
                     #region Generate Order
                     case 2:
                         Console.Clear();
-                        string orderString = BookStore.ListOrders(BookStore.GenerateOrders(hengelo.Stocks));
+                        List<string> orderString = BookStore.GenerateOrders(hengelo.Stocks);
 
-                        Console.WriteLine(orderString);
-
-                        if (orderString != "")
+                        if (orderString.Any() != false)
                         {
-
 
                             Order todaysOrder = new Order();
                             todaysOrder.OrderDate = DateTime.Today;
                             todaysOrder.OrderHandled = false;
-                            todaysOrder.OrderList.Add(orderString);
+                            todaysOrder.OrderList = orderString;
 
-                            OrderItems.OrderList.Add(todaysOrder);
+                                OrderItems.OrderList.Add(todaysOrder);
 
-
+                            
                         }
+
+
+                            foreach (string listItem in orderString)
+                            {
+                            Console.WriteLine(listItem);
+                            
+                            }
+                            
+                            
+
+                        
+
+
+
+                            
+                            
+
+
+                        
                         Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
 
@@ -526,7 +542,7 @@ namespace Bookstore_De_Jong
                         Console.Clear();
                         Console.WriteLine("[ 1 ] Order book");
                         Console.WriteLine("[ 2 ] Order magazine");
-                        string orderStringManual;
+                        List<string> orderStringManual;
                         while (!int.TryParse(Console.ReadLine(), out option))
                         {
                             Console.WriteLine("Enter a valid number!");
@@ -534,36 +550,35 @@ namespace Bookstore_De_Jong
                         switch (option)
                         {
                             case 1:
-                                orderStringManual = BookStore.ListOrders(Book.OrderBookByISBN(hengelo.Stocks));
+                                orderStringManual = Book.OrderBookByISBN(hengelo.Stocks);
 
                                 Console.WriteLine(orderStringManual);
 
-                                if (orderStringManual != "")
+                                if (orderStringManual.Any() != false) 
                                 {
                                     
                                     Order manOrderBook = new Order();
                                     manOrderBook.OrderDate = DateTime.Today;
                                     manOrderBook.OrderHandled = false;
-                                    manOrderBook.OrderList.Add(orderStringManual);
-
-                                        OrderItems.OrderList.Add(manOrderBook);
+                                    manOrderBook.OrderList = orderStringManual;
+                                    OrderItems.OrderList.Add(manOrderBook);
 
                                 }
                                 Console.WriteLine("Press any key to continue...");
                                 Console.ReadKey();
                                 break;
                             case 2:
-                                orderStringManual = BookStore.ListOrders(Magazine.OrderMagazineByISSN(hengelo.Stocks));
+                                orderStringManual = Magazine.OrderMagazineByISSN(hengelo.Stocks);
 
                                 Console.WriteLine(orderStringManual);
 
-                                if (orderStringManual != "")
+                                if (orderStringManual.Any() != false)
                                 {
 
                                     Order manOrderMagazine = new Order();
                                     manOrderMagazine.OrderDate = DateTime.Today;
                                     manOrderMagazine.OrderHandled = false;
-                                    manOrderMagazine.OrderList.Add(orderStringManual);
+                                    manOrderMagazine.OrderList = orderStringManual;
                                     OrderItems.OrderList.Add(manOrderMagazine);
 
 
