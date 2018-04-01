@@ -105,20 +105,22 @@ namespace BookstorLibrary
 
 
 
-    public static void RemoveFromOrder(int index, List<string> stringOrderList)
-        {
+        public static void RemoveFromOrder(int index, List<string> stringOrderList)
+            {
             
-            stringOrderList.RemoveAt(index);
+                stringOrderList.RemoveAt(index);
 
-            Console.WriteLine("Order removed at id: " + index + " Press any key to continue...");
-            Console.ReadKey();
+                Console.WriteLine("Order removed at id: " + index + " Press any key to continue...");
+                Console.ReadKey();
 
-        }
-     
-        //public static void EditOrderDate(int index)
-        //{
+            }
 
-        //}
+        public static void EditOrderDate(int index)
+            {
+
+
+
+            }
 
     }
 }

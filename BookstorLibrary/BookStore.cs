@@ -534,6 +534,7 @@ namespace BookstoreLibrary
                 Console.WriteLine("What do you wish to do?");
                 Console.WriteLine("[ 1 ] Delete the order");
                 Console.WriteLine("[ 2 ] Edit order contents");
+                Console.WriteLine("[ 3 ] Change order date");
                 while (!int.TryParse(Console.ReadLine(), out option))
                 {
                     Console.WriteLine("Enter a number!");
@@ -568,6 +569,17 @@ namespace BookstoreLibrary
                         {
                             OrderItems.RemoveOrderByIndex(selectedIndex);
                         }
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter the new date. Format: (31-12-2000)");
+                        string line = Console.ReadLine();
+                        DateTime dt;
+                        while (!DateTime.TryParseExact(line, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dt))
+                        {
+                            Console.WriteLine("Invalid date, please retry");
+                            line = Console.ReadLine();
+                        }
+                        OrderItems.ChangeDateByIndex(selectedIndex, dt);
                         break;
                     default:
                         break;

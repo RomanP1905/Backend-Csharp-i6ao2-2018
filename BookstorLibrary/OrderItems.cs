@@ -35,7 +35,13 @@ namespace BookstorLibrary
 
         }
 
+        public static void ChangeDateByIndex(int index, DateTime date)
+        {
+            OrderList[index].OrderDate = date;
 
+            Console.WriteLine("Date changed to: " + date.ToString("dd/MM/yyyy") + " Press any key to continue...");
+            Console.ReadKey();
+        }
 
     }
 }
