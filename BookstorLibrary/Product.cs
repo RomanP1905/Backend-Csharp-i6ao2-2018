@@ -55,6 +55,8 @@ namespace BookstorLibrary
 
         public abstract string GetTitle();
 
+        public abstract string GetAuthor();
+
         public abstract int GetStock();
 
         public abstract string PrintOrderRule();

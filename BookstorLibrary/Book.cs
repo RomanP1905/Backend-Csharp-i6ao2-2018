@@ -78,7 +78,10 @@ namespace BookstorLibrary
         {
             return Title;
         }
-
+        public override string GetAuthor()
+        {
+            return Author;
+        }
         public override int GetStock()
         {
             return Stock;

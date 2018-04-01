@@ -102,7 +102,8 @@ namespace BookstoreLibrary
                 if (typeCompare == typeof(Book))
                 {
                     string titleKey = Stocks[i].GetTitle();
-                    if (titleKey == title)
+                    string authorKey = Stocks[i].GetAuthor();
+                    if (titleKey == title && authorKey == author)
                     {
                         int bookStock = Stocks[i].GetStock();
 
@@ -144,6 +145,7 @@ namespace BookstoreLibrary
             if (!haveFound)
             {
                 Console.WriteLine("Your entry does not match any books in the database");
+                Console.ReadKey();
             }
             
             return Stocks;
@@ -476,10 +478,12 @@ namespace BookstoreLibrary
 
         public static void ListUnhandledOrders(List<Order> orderList)
         {
+            int option;
             bool trigger = false;
             string ordersString = "";
             int index = 0;
             int selectedIndex = -1;
+            int selectedItemIndex = -1;
 
             foreach (Order order in orderList)
                {
@@ -490,19 +494,21 @@ namespace BookstoreLibrary
                 {
                     trigger = true;
                     string orderListString = "";
-
+                    int stringIndex = 0;
                     foreach (string orderitem in order.OrderList)
                     {
                         
-                        orderListString += orderitem + "\n";
-
+                        orderListString += "[ id: " + stringIndex + " ]" + orderitem + "\n";
+                        stringIndex++;
                     }
 
 
-                    ordersString = "[ " + index + " ] Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " | " + orderListString;
+                    ordersString = "[ " + index + " ] Order Date: " + order.OrderDate.ToString("dd/MM/yyyy") + " \n" + orderListString + " \n-----------------------------------------------------------------------------";
                     index++; 
                 }
 
+                
+                }
                 if (trigger)
                 {
                     Console.WriteLine(ordersString);
@@ -513,7 +519,6 @@ namespace BookstoreLibrary
                     Console.WriteLine("No unhandled orders were found. Press any key to continue...");
                     Console.ReadKey();
                 }
-            }
 
 
 
@@ -521,15 +526,54 @@ namespace BookstoreLibrary
             {
 
 
-                Console.WriteLine("Select a record to delete.");
+                Console.WriteLine("Select a record to edit.");
                 while (!int.TryParse(Console.ReadLine(), out selectedIndex))
                 {
                     Console.WriteLine("Enter a number!");
                 }
-                if (selectedIndex != -1)
+                Console.WriteLine("What do you wish to do?");
+                Console.WriteLine("[ 1 ] Delete the order");
+                Console.WriteLine("[ 2 ] Edit order contents");
+                while (!int.TryParse(Console.ReadLine(), out option))
                 {
-                    OrderItems.RemoveOrderByIndex(selectedIndex);
+                    Console.WriteLine("Enter a number!");
                 }
+                
+
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Enter the number of the order again to confirm deletion.");
+                        while (!int.TryParse(Console.ReadLine(), out selectedIndex))
+                        {
+                            Console.WriteLine("Enter a number!");
+                        }
+                        if (selectedIndex != -1)
+                        {
+                            OrderItems.RemoveOrderByIndex(selectedIndex);
+                        }
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Enter the index of the item you wish to remove.");
+                        while (!int.TryParse(Console.ReadLine(), out selectedItemIndex))
+                        {
+                            Console.WriteLine("Enter a number!");
+                        }
+                        if (selectedItemIndex != -1)
+                        {
+                            Order.RemoveFromOrder(selectedItemIndex, orderList[selectedIndex].OrderList);
+                        }
+                        if (OrderItems.OrderList[selectedIndex].OrderList.Count() == 0)
+                        {
+                            OrderItems.RemoveOrderByIndex(selectedIndex);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                
             }
             
 

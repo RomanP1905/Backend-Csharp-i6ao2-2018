@@ -72,6 +72,11 @@ namespace BookstorLibrary
             return Title;
         }
 
+        public override string GetAuthor()
+        {
+            return Author;
+        }
+
         public static List<string> OrderMagazineByISSN(List<Product> productList)
         {
 
