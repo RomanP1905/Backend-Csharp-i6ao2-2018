@@ -37,7 +37,14 @@ namespace BookstoreLibrary.Tests
 
             BookStore.RemoveBookFromStockByISBN("9789048840243", hengelo.Stocks);
 
-            List<BookstorLibrary.Product> productsExpected = hengelo.Stocks;
+
+            products.RemoveAt(1);
+            BookStore hengelo2 = new BookStore();
+            hengelo2.Stocks = products;
+            hengelo2.BusinessHours = "Mo-Vr 8:00 - 15:00";
+            hengelo2.ContactInfo = "Find me on my website: www.bookstore-hengelo.nl";
+            List<BookstorLibrary.Product> productsExpected = hengelo2.Stocks;
+
 
             CollectionAssert.AreEqual(productsExpected, actual);
         }
