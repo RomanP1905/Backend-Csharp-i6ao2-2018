@@ -127,13 +127,5 @@ namespace BookstorLibrary
                 Console.ReadKey();
             }
 
-        /// <summary>
-        /// Edits the order date.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        public static void EditOrderDate(int index)
-        {
-
-        }
     }
 }

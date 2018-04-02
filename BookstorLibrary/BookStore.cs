@@ -42,30 +42,36 @@ namespace BookstoreLibrary
         {
             
             List<Product> Stocks = productList;
+            //Een trigger om te zien of er een product is gevonden met het ingevoerde ISBN
             bool haveFound = false;
             for (int i = Stocks.Count - 1; i >= 0; i--)
             {
 
                 Type typeCompare = Stocks[i].GetType();
 
-
+                //Type product wordt hier gecheckt
                 if (typeCompare == typeof(Book))
                 {
+                    //de key is de ISBN van de boek
                     string key = Stocks[i].GetKey();
+                    //Check of de key gelijk is aan de ISBN die is ingevoerd 
                     if (key == iSBN)
                     {
+                        //GetStock van de iteratie 
                         int bookStock = Stocks[i].GetStock();
-
+                        //Check zodat je niet meer verkoopt dan dat er in voorraad zijn
                         if (bookStock >= soldBooks)
                         {
+                            //Trigger aangeven dat er iets is gevonden
                             haveFound = true;
                             for (int j = 0; j < soldBooks; j++)
                             {
+                                //Stock omlaag op de iteratie
                                 ((Book)Stocks[i]).Stock--;
                                 bookStock--;
 
                             }
-
+                            //Schrijf de verkochte boek naar console
                             Console.WriteLine("Sold book: \n Title: " + ((Book)Stocks[i]).Title +
                                 " \n Author: " + ((Book)Stocks[i]).Author +
                                 " \n ISBN: " + ((Book)Stocks[i]).ISBN +
@@ -87,6 +93,7 @@ namespace BookstoreLibrary
                 }
 
             }
+            //Als er niks is gevonden schrijf je  dat in de console
             if (!haveFound)
             {
                 Console.WriteLine("Your entry does not match any books in the database");
@@ -215,13 +222,13 @@ namespace BookstoreLibrary
                         
                         else
                         {
-                            Console.WriteLine("Sold books are higher than stock");
+                            Console.WriteLine("Sold magazines are higher than stock");
                             Console.ReadKey();
                         }
                     }
                     else
                     {
-                        Console.WriteLine("No such book ISBN exists.");
+                        Console.WriteLine("No such magazine ISSN exists.");
                         Console.ReadKey();
                     }
 
@@ -250,11 +257,14 @@ namespace BookstoreLibrary
                 Type typeCompare = Stocks[i].GetType();
                 if (typeCompare == typeof(Magazine))
                 {
+                    //datum van vandaag
                     DateTime dt = DateTime.Today;
+                    //als de orderdatum overeenkomt met de dag van vandaag wordt er een order aangemaakt
                     if (Convert.ToString(((Magazine)Stocks[i]).GetOrderDate()) == Convert.ToString(dt.DayOfWeek))
                     {
                         noOrders = false;
                         int oa1 = ((Magazine)Stocks[i]).TotalOrderMagazine;
+                        //Voorraad wordt bijgevult
                         ((Magazine)Stocks[i]).TotalOrderMagazine = ((Magazine)Stocks[i]).TotalOrderMagazine + oa1;
                         string t1 = ((Magazine)Stocks[i]).Title;
                         
@@ -492,12 +502,16 @@ namespace BookstoreLibrary
             bool trigger = true;
 
             List<Order> orderListHolder = orderList;
+            //Ga achterwaards door de lijst heen op zoek naar records waar "orderhandled" false is.
             for (int i = orderListHolder.Count - 1; i >= 0; i--)
             {
+                //Is de order op OrderHandled : false
                 if(orderListHolder[i].OrderHandled == false)
                 {
+                    //Zet die order in een variabel
                     Order lastOrder = orderListHolder[i];
                     string orderItemsString = "";
+                    //Zet alle producten in de order in een string
                     foreach (string orderitem in lastOrder.OrderList)
                     {
                         orderItemsString += orderitem;
@@ -507,7 +521,7 @@ namespace BookstoreLibrary
                         "\n Order items: \n " + orderItemsString);
 
                     Console.WriteLine("Enter Y to finish this order or enter any other character to return to the main menu.");
-
+                    //Read voor input
                     string optionString = Console.ReadLine();
 
                     if (optionString == "Y" || optionString == "y")
@@ -522,6 +536,7 @@ namespace BookstoreLibrary
 
                     if (option == 1)
                     {
+                        //zet de orderhandled naar true
                         orderListHolder[i].OrderHandled = true;
                         Console.WriteLine("Order has been marked as handled");
                         
@@ -561,12 +576,13 @@ namespace BookstoreLibrary
                {
 
 
-
+                //Laat alleen unhandled orders zien
                 if (!order.OrderHandled)
                 {
                     trigger = true;
                     string orderListString = "";
                     int stringIndex = 0;
+                    //zet de order producten in een string
                     foreach (string orderitem in order.OrderList)
                     {
                         
@@ -593,12 +609,13 @@ namespace BookstoreLibrary
                 }
 
 
-
+                //als er geen orders zijn niet de opties laten zien.
             if (ordersString != "")
             {
 
 
                 Console.WriteLine("Select a record to edit.");
+                //Check voor validiteit van de input, het verwacht een int
                 while (!int.TryParse(Console.ReadLine(), out selectedIndex))
                 {
                     Console.WriteLine("Enter a number!");
@@ -679,7 +696,7 @@ namespace BookstoreLibrary
             foreach(Order order in orderList)
             {
                 string dateCompare = order.OrderDate.ToString("dd/MM/yyyy");
-
+                //Datum vergelijke met ingevoerde datum
                 if (dateCompare == enteredDate)
                 {
                     trigger = true;
@@ -723,7 +740,7 @@ namespace BookstoreLibrary
 
             for (int i = Stocks.Count - 1; i >= 0; i--)
             {
-
+                //Check op type van product
                 Type typeCompare = Stocks[i].GetType();
                 if (typeCompare == typeof(Book))
                 {
