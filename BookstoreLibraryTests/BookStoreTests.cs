@@ -11,6 +11,38 @@ namespace BookstoreLibrary.Tests
     [TestClass()]
     public class BookStoreTests
     {
+        //[TestMethod()]
+        //public void BookStoreTest()
+        //{
+            
+        //}
+
+
+
+        //[TestMethod()]
+        //public void GenerateOrdersTest()
+        //{
+        //    List<BookstorLibrary.Product> products = new List<BookstorLibrary.Product>();
+        //    products.Add(new BookstorLibrary.Book("2017", "9789022580196", 5, 12, 3, "De verloren familie",
+        //        "Jenna Blum", 585, 19.99m, BookstorLibrary.Language.Dutch, new BookstorLibrary.Measurement(141, 218, 40)
+        //        ));
+
+        //    products.Add(new BookstorLibrary.Book("2018", "9789048840243", 10, 50, 15, "Gordon",
+        //        "Marcel Langedijk", 374, 19.99m, BookstorLibrary.Language.Dutch, new BookstorLibrary.Measurement(134, 213, 25)
+        //        ));
+
+        //    products.Add(new BookstorLibrary.Magazine(BookstorLibrary.DayOfWeek.Wednesday, BookstorLibrary.DayOfWeek.Tuesday, "1057-3534", 100, "LINDA",
+        //        "Linda", 170, 6.25m, BookstorLibrary.Language.Dutch, new BookstorLibrary.Measurement(190, 275, 20)
+        //    ));
+        //    List<string> expected = BookStore.GenerateOrders(products);
+        //    List<string> actual = BookStore.GenerateOrders(products);
+
+        //    Assert.AreEqual(expected, actual);
+        //}
+
+    [TestClass()]
+    public class BookStoreTests
+    {
         [TestMethod()]
         public void RemoveBookFromStockByISBNTest()
         {

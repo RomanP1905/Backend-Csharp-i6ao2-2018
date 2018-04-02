@@ -1,0 +1,6 @@
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstorLibrary\bin\Debug\BookstorLibrary.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstorLibrary\bin\Debug\BookstorLibrary.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstorLibrary\obj\Debug\BookstoreLibrary.csprojResolveAssemblyReference.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstorLibrary\obj\Debug\BookstoreLibrary.csproj.CoreCompileInputs.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstorLibrary\obj\Debug\BookstorLibrary.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstorLibrary\obj\Debug\BookstorLibrary.pdb

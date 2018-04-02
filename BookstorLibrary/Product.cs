@@ -61,6 +61,10 @@ namespace BookstorLibrary
 
         public abstract string PrintOrderRule();
 
+        /// <summary>
+        /// Gets the test data.
+        /// </summary>
+        /// <returns>List&lt;Product&gt;.</returns>
         public static List<Product> GetTestData()
         {
             List<Product> products = new List<Product>();

@@ -30,7 +30,14 @@ namespace BookstoreLibrary
         public string BusinessHours { get => businessHours; set => businessHours = value; }
         public OrderItems ObjOrderItems { get; set; }
 
-        //Verkopen van boeken methode via ISBN
+        //Verkopen van boeken methode via ISBN        
+        /// <summary>
+        /// Sells the book by isbn.
+        /// </summary>
+        /// <param name="iSBN">The i SBN.</param>
+        /// <param name="soldBooks">The sold books.</param>
+        /// <param name="productList">The product list.</param>
+        /// <returns>List&lt;Product&gt;.</returns>
         public static List<Product> SellBookByISBN(string iSBN, int soldBooks, List<Product> productList)
         {
             
@@ -90,7 +97,15 @@ namespace BookstoreLibrary
             return Stocks;
         }
 
-        //Verkopen van boeken methode via title
+        //Verkopen van boeken methode via title        
+        /// <summary>
+        /// Sells the book by title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="author">The author.</param>
+        /// <param name="soldBooks">The sold books.</param>
+        /// <param name="productList">The product list.</param>
+        /// <returns>List&lt;Product&gt;.</returns>
         public static List<Product> SellBookByTitle(string title, string author,int soldBooks, List<Product> productList)
         {
             List<Product> Stocks = productList;
@@ -151,7 +166,14 @@ namespace BookstoreLibrary
             return Stocks;
         }
 
-        //Verkopen van boeken methode via ISBN
+        //Verkopen van boeken methode via ISBN        
+        /// <summary>
+        /// Sells the magazine by issn.
+        /// </summary>
+        /// <param name="issn">The issn.</param>
+        /// <param name="soldmagazine">The soldmagazine.</param>
+        /// <param name="Stocks">The stocks.</param>
+        /// <returns>List&lt;Product&gt;.</returns>
         public static List<Product> SellMagazineByISSN(string issn, int soldmagazine, List<Product> Stocks)
         {
 
@@ -212,7 +234,11 @@ namespace BookstoreLibrary
         }
 
 
-
+        /// <summary>
+        /// Generates the orders.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        /// <returns>List&lt;System.String&gt;.</returns>
         public static List<string> GenerateOrders(List<Product> productList)
         {
             List<Product> Stocks = productList;
@@ -260,6 +286,7 @@ namespace BookstoreLibrary
             }
             
             return OrderListCol;
+
         }
 
 
@@ -268,8 +295,6 @@ namespace BookstoreLibrary
         //public static string ListOrders(List<string> orderItemsList)
         //{
         //    List<String> r1 = new List<String>();
-
-
         //    foreach (var order in orderItemsList)
         //    {
 
@@ -290,6 +315,7 @@ namespace BookstoreLibrary
 
 
         //    return
+
 
         //        r2;
         //}
@@ -354,6 +380,21 @@ namespace BookstoreLibrary
                 r2;
         }
 
+        /// <summary>
+        /// Adds the new book.
+        /// </summary>
+        /// <param name="print">The print.</param>
+        /// <param name="iSBN">The i SBN.</param>
+        /// <param name="minStock">The minimum stock.</param>
+        /// <param name="maxStock">The maximum stock.</param>
+        /// <param name="stock">The stock.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="author">The author.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="price">The price.</param>
+        /// <param name="language">The language.</param>
+        /// <param name="measurement">The measurement.</param>
+        /// <param name="productList">The product list.</param>
         public static void AddNewBook(string print, string iSBN, int minStock, int maxStock, int stock, string title, string author, int weight, decimal price, Language language, Measurement measurement, List<Product> productList)
         {
 
@@ -364,6 +405,20 @@ namespace BookstoreLibrary
 
         }
 
+        /// <summary>
+        /// Adds the new magazine.
+        /// </summary>
+        /// <param name="dayOfRelease">The day of release.</param>
+        /// <param name="dayOfOrder">The day of order.</param>
+        /// <param name="iSSn">The i s sn.</param>
+        /// <param name="totalOrderMagazine">The total order magazine.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="author">The author.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="price">The price.</param>
+        /// <param name="language">The language.</param>
+        /// <param name="measurement">The measurement.</param>
+        /// <param name="productList">The product list.</param>
         public static void AddNewMagazine(BookstorLibrary.DayOfWeek dayOfRelease, BookstorLibrary.DayOfWeek dayOfOrder, string iSSn, int totalOrderMagazine, string title, string author, int weight, decimal price, Language language, Measurement measurement, List<Product> productList)
         {
 
@@ -374,7 +429,11 @@ namespace BookstoreLibrary
 
         }
 
-
+        /// <summary>
+        /// Removes the book from stock by isbn.
+        /// </summary>
+        /// <param name="isbn">The isbn.</param>
+        /// <param name="productList">The product list.</param>
         public static void RemoveBookFromStockByISBN(string isbn , List<Product> productList)
         {
             List<Product> Stocks = productList;
@@ -396,6 +455,11 @@ namespace BookstoreLibrary
 
         }
 
+        /// <summary>
+        /// Removes the magazine from stock by issn.
+        /// </summary>
+        /// <param name="issn">The issn.</param>
+        /// <param name="productList">The product list.</param>
         public static void RemoveMagazineFromStockByISSN(string issn, List<Product> productList)
         {
             List<Product> Stocks = productList;
@@ -418,6 +482,10 @@ namespace BookstoreLibrary
 
         }
 
+        /// <summary>
+        /// Lists the last order.
+        /// </summary>
+        /// <param name="orderList">The order list.</param>
         public static void ListLastOrder(List<Order> orderList)
         {
             int option;
@@ -476,6 +544,10 @@ namespace BookstoreLibrary
 
         }
 
+        /// <summary>
+        /// Lists the unhandled orders.
+        /// </summary>
+        /// <param name="orderList">The order list.</param>
         public static void ListUnhandledOrders(List<Order> orderList)
         {
             int option;
@@ -595,6 +667,11 @@ namespace BookstoreLibrary
 
         }
 
+        /// <summary>
+        /// Sees the order by date.
+        /// </summary>
+        /// <param name="enteredDate">The entered date.</param>
+        /// <param name="orderList">The order list.</param>
         public static void SeeOrderByDate(string enteredDate, List<Order> orderList)
         {
             string listString = "Found Orders: \n";
@@ -630,6 +707,10 @@ namespace BookstoreLibrary
                 
         }
 
+        /// <summary>
+        /// Changes the book stock constraints.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
         public static void ChangeBookStockConstraints(List<Product> productList)
         {
             List<Product> Stocks = productList;
@@ -681,6 +762,10 @@ namespace BookstoreLibrary
 
         }
 
+        /// <summary>
+        /// Changes the magazine stock constraints.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
         public static void ChangeMagazineStockConstraints(List<Product> productList)
         {
             List<Product> Stocks = productList;

@@ -12,7 +12,10 @@ namespace BookstorLibrary
         private string printLastCode;
         #endregion
 
-        #region constructor
+        #region constructor        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrderItems"/> class.
+        /// </summary>
         public OrderItems()
         {
         }
@@ -23,7 +26,10 @@ namespace BookstorLibrary
         public static List<Order> OrderList { get; set; } = new List<Order>();
         #endregion
 
-
+        /// <summary>
+        /// Removes the index of the order by.
+        /// </summary>
+        /// <param name="index">The index.</param>
         public static void RemoveOrderByIndex(int index)
         {
 
@@ -35,6 +41,11 @@ namespace BookstorLibrary
 
         }
 
+        /// <summary>
+        /// Changes the index of the date by.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="date">The date.</param>
         public static void ChangeDateByIndex(int index, DateTime date)
         {
             OrderList[index].OrderDate = date;

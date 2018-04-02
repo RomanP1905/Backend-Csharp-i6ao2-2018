@@ -15,7 +15,10 @@ namespace BookstorLibrary
         private bool orderHandled;
         #endregion
 
-        #region constructor
+        #region constructor        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Order"/> class.
+        /// </summary>
         public Order()
         {
         }
@@ -30,7 +33,10 @@ namespace BookstorLibrary
 
 
 
-
+        /// <summary>
+        /// Adds the generated order.
+        /// </summary>
+        /// <param name="Stocks">The stocks.</param>
         public static void AddGeneratedOrder(List<Product> Stocks)
         {
 
@@ -57,6 +63,10 @@ namespace BookstorLibrary
             }
         }
 
+        /// <summary>
+        /// Adds the book to order.
+        /// </summary>
+        /// <param name="Stocks">The stocks.</param>
         public static void AddBookToOrder(List<Product> Stocks)
         {
             List<string> orderStringManual;
@@ -80,6 +90,10 @@ namespace BookstorLibrary
             }
         }
 
+        /// <summary>
+        /// Adds the magazine to order.
+        /// </summary>
+        /// <param name="Stocks">The stocks.</param>
         public static void AddMagazineToOrder(List<Product> Stocks)
         {
             List<string> orderStringManual;
@@ -92,35 +106,34 @@ namespace BookstorLibrary
 
             if (orderStringManual.Any() != false)
             {
-
                 Order manOrderMagazine = new Order();
                 manOrderMagazine.OrderDate = DateTime.Today;
                 manOrderMagazine.OrderHandled = false;
                 manOrderMagazine.OrderList = orderStringManual;
                 OrderItems.OrderList.Add(manOrderMagazine);
-
             }
         }
-        
 
-
-
+        /// <summary>
+        /// Removes from order.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="stringOrderList">The string order list.</param>
         public static void RemoveFromOrder(int index, List<string> stringOrderList)
-            {
-            
+            {         
                 stringOrderList.RemoveAt(index);
 
                 Console.WriteLine("Order removed at id: " + index + " Press any key to continue...");
                 Console.ReadKey();
-
             }
 
+        /// <summary>
+        /// Edits the order date.
+        /// </summary>
+        /// <param name="index">The index.</param>
         public static void EditOrderDate(int index)
-            {
+        {
 
-
-
-            }
-
+        }
     }
 }
