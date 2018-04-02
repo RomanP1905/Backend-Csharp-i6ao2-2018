@@ -265,34 +265,34 @@ namespace BookstoreLibrary
 
 
 
-        public static string ListOrders(List<string> orderItemsList)
-        {
-            List<String> r1 = new List<String>();
+        //public static string ListOrders(List<string> orderItemsList)
+        //{
+        //    List<String> r1 = new List<String>();
 
 
-            foreach (var order in orderItemsList)
-            {
+        //    foreach (var order in orderItemsList)
+        //    {
 
-                string s1 = order;
-                r1.Add(s1);
-            }
+        //        string s1 = order;
+        //        r1.Add(s1);
+        //    }
 
-            string r2 = "";
+        //    string r2 = "";
 
-                foreach (var listitem in r1)
-              {
-                if(r1.Count != 0)
-                {
-                r2 = r1[r1.Count - 1] + " \n";
-                }
+        //        foreach (var listitem in r1)
+        //      {
+        //        if(r1.Count != 0)
+        //        {
+        //        r2 = r1[r1.Count - 1] + " \n";
+        //        }
 
-              }
+        //      }
 
 
-            return
+        //    return
 
-                r2;
-        }
+        //        r2;
+        //}
 
         public static string ListProduct(List<Product> productList)
         {
