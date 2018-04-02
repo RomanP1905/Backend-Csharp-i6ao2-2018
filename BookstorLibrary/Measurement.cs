@@ -14,11 +14,20 @@ namespace BookstorLibrary
         private int width;
         #endregion
 
-        #region constructor
+        #region constructor        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Measurement"/> class.
+        /// </summary>
         public Measurement()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Measurement"/> class.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="lenght">The lenght.</param>
         public Measurement(int width, int height, int lenght)
         {
             this.lenght = lenght;

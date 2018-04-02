@@ -1,0 +1,15 @@
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\BookstoreLibraryTests.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\BookstoreLibraryTests.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\BookstorLibrary.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\BookstorLibrary.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\obj\Debug\BookstoreLibraryTests.csproj.CoreCompileInputs.cache
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\obj\Debug\BookstoreLibraryTests.dll
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\obj\Debug\BookstoreLibraryTests.pdb
+C:\Users\hteri\source\repos\Backend-Csharp-i6ao2-2018-project_s4_roman\BookstoreLibraryTests\obj\Debug\BookstoreLibraryTests.csprojResolveAssemblyReference.cache

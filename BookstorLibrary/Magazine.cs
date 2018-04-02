@@ -41,42 +41,75 @@ namespace BookstorLibrary
         }
         #endregion
 
-        #region methodes
+        #region methodes        
+        /// <summary>
+        /// Prints the attributes.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string PrintAttributes()
         {
             return Title;
         }
 
+        /// <summary>
+        /// Prints the order rule.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string PrintOrderRule()
         {
             return Convert.ToString(DayOfOrder);
         }
 
+        /// <summary>
+        /// Gets the order date.
+        /// </summary>
+        /// <returns>DayOfWeek.</returns>
         public DayOfWeek GetOrderDate()
         {
             return DayOfOrder;
         }
 
+        /// <summary>
+        /// Gets the key.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string GetKey()
         {
             return ISSn;
         }
 
+        /// <summary>
+        /// Gets the stock.
+        /// </summary>
+        /// <returns>System.Int32.</returns>
         public override int GetStock()
         {
             return TotalOrderMagazine;
         }
 
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string GetTitle()
         {
             return Title;
         }
 
+        /// <summary>
+        /// Gets the author.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string GetAuthor()
         {
             return Author;
         }
 
+        /// <summary>
+        /// Orders the magazine by issn.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        /// <returns>List&lt;System.String&gt;.</returns>
         public static List<string> OrderMagazineByISSN(List<Product> productList)
         {
 

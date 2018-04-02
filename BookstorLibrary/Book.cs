@@ -42,61 +42,106 @@ namespace BookstorLibrary
         }
         #endregion
 
-        
+
 
         #region methodes       
 
-        
 
+        /// <summary>
+        /// Gets the book information.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string GetBookInfo()
         {
             return Print + " " + Title + " " + Author + " " + Weight + " " + Price + " " + Language + " " + Measurement + " " + ISBN + " " + MinStock + " " + MaxStock + " " + Stock; 
         }
 
-
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
         public override string ToString()
         {
             return GetBookInfo();
         }
 
+        /// <summary>
+        /// Prints the attributes.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string PrintAttributes()
         {
             return GetBookInfo();
         }
 
+        /// <summary>
+        /// Prints the order rule.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string PrintOrderRule()
         {
             return "orderrulebook";
         }
 
+        /// <summary>
+        /// Gets the key.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string GetKey()
         {
             return ISBN;
         }
 
+        /// <summary>
+        /// Gets the title.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string GetTitle()
         {
             return Title;
         }
+
+        /// <summary>
+        /// Gets the author.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public override string GetAuthor()
         {
             return Author;
         }
+
+        /// <summary>
+        /// Gets the stock.
+        /// </summary>
+        /// <returns>System.Int32.</returns>
         public override int GetStock()
         {
             return Stock;
         }
 
+        /// <summary>
+        /// Gets the minimum stock.
+        /// </summary>
+        /// <returns>System.Int32.</returns>
         public int GetMinStock()
         {
             return minStock;
         }
 
+        /// <summary>
+        /// Gets the maximum stock.
+        /// </summary>
+        /// <returns>System.Int32.</returns>
         public int GetMaxStock()
         {
             return maxStock;
         }
 
+        /// <summary>
+        /// Orders the book by isbn.
+        /// </summary>
+        /// <param name="productList">The product list.</param>
+        /// <returns>List&lt;System.String&gt;.</returns>
         public static List<string> OrderBookByISBN(List<Product> productList)
         {
 
