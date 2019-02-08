@@ -172,7 +172,7 @@ namespace BookstorLibrary
                         string t1 = ((Book)productList[i]).Title;
 
                         string orderL = "ISBN : " + productList[i].GetKey() + " | "
-                            + " Titel: " + t1 + " | "
+                            + " Title: " + t1 + " | "
                             + " To Order: " + oa1;
 
                         OrderListCol.Add(orderL);
